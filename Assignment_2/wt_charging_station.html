@@ -1,0 +1,829 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Charging Stations</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          "Gotham Pro",
+          "Poppins",
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+      }
+
+      /* Main container */
+      .charging-stations {
+        max-width: auto; 
+        height: auto;
+        background-color: #101112;
+        max-width: 838px;
+        overflow: hidden;
+      }
+
+      .charging-container {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        min-height: 908px;
+        width: 100%;
+        padding-top: 13px;
+      }
+
+      @media (max-width: 991px) {
+        .charging-container {
+          max-width: 100%;
+        }
+      }
+
+      /* Background image */
+      .background-image {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      /* Header section */
+      .app-header {
+        position: relative;
+        display: flex;
+        margin-left: 23px;
+        width: 326px;
+        max-width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      @media (max-width: 991px) {
+        .app-header {
+          margin-left: 10px;
+        }
+      }
+
+      /* Status bar */
+      .status-bar {
+        display: flex;
+        width: 100%;
+        align-items: flex-start;
+        gap: 20px;
+        justify-content: space-between;
+      }
+
+      .time-display {
+        aspect-ratio: 2.42;
+        object-fit: contain;
+        object-position: center;
+        width: 29px;
+        flex-shrink: 0;
+      }
+
+      .status-icons {
+        display: flex;
+        align-items: stretch;
+        gap: 5px;
+      }
+
+      .network-icon {
+        aspect-ratio: 1.5;
+        object-fit: contain;
+        object-position: center;
+        width: 18px;
+        flex-shrink: 0;
+      }
+
+      .wifi-icon {
+        aspect-ratio: 1.33;
+        object-fit: contain;
+        object-position: center;
+        width: 16px;
+        flex-shrink: 0;
+      }
+
+      .battery-container {
+        display: flex;
+        align-items: stretch;
+        gap: 1px;
+      }
+
+      .battery-icon {
+        aspect-ratio: 1.92;
+        object-fit: contain;
+        object-position: center;
+        width: 23px;
+        flex-shrink: 0;
+      }
+
+      .battery-level {
+        aspect-ratio: 0.25;
+        object-fit: contain;
+        object-position: center;
+        width: 1px;
+        margin-top: auto;
+        margin-bottom: auto;
+        flex-shrink: 0;
+      }
+
+      /* Search section */
+      .search-container {
+        display: flex;
+        margin-top: 29px;
+        align-items: stretch;
+        gap: 6px;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 14px;
+        color: #373737;
+        font-weight: 400;
+        line-height: 2;
+      }
+
+      @media (max-width: 991px) {
+        .search-container {
+          margin-left: 2px;
+        }
+      }
+
+      .search-text {
+        border-radius: 20px;
+        background-color: rgba(255, 249, 239, 1);
+        margin-top: auto;
+        margin-bottom: auto;
+        padding: 5px 42px;
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      @media (max-width: 991px) {
+        .search-text {
+          padding: 5px 20px;
+        }
+      }
+
+      .search-button {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+      }
+
+      .search-button img {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 45px;
+        box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.08);
+        flex-shrink: 0;
+      }
+
+      .location-button {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        align-self: flex-end;
+        margin-top: 44px;
+      }
+
+      .location-button img {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 54px;
+        box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.08);
+      }
+
+      @media (max-width: 991px) {
+        .location-button {
+          margin-top: 40px;
+        }
+      }
+
+      /* Content section */
+      .content-section {
+        position: relative;
+        display: flex;
+        margin-top: 260px;
+        width: 100%;
+        padding: 0 41px 0 16px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      @media (max-width: 991px) {
+        .content-section {
+          max-width: 100%;
+          margin-top: 40px;
+          padding-right: 20px;
+        }
+      }
+
+      /* Filter options */
+      .filter-options {
+        align-self: flex-start;
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        font-family:
+          "Gotham Pro",
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 17px;
+        color: rgba(255, 255, 255, 1);
+        font-weight: 400;
+        text-align: center;
+        line-height: 1;
+      }
+
+      .filter-button {
+        align-self: stretch;
+        border-radius: 99px;
+        background-color: rgba(9, 31, 91, 1);
+        padding: 14px 18px;
+        gap: 6px;
+        white-space: nowrap;
+        border: none;
+        color: white;
+        font-family: inherit;
+        font-size: inherit;
+        cursor: pointer;
+      }
+
+      @media (max-width: 991px) {
+        .filter-button {
+          white-space: initial;
+        }
+      }
+
+      .sort-button {
+        border-radius: 99px;
+        background-color: rgba(9, 31, 91, 1);
+        display: flex;
+        padding: 14px 18px;
+        align-items: center;
+        gap: 7px;
+        justify-content: center;
+        border: none;
+        color: white;
+        font-family: inherit;
+        font-size: inherit;
+        cursor: pointer;
+      }
+
+      .sort-text {
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      .sort-icon {
+        aspect-ratio: 1.72;
+        object-fit: contain;
+        object-position: center;
+        width: 12px;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+        flex-shrink: 0;
+      }
+
+      /* Stations container */
+      .stations-container {
+        margin-top: 16px;
+      }
+
+      @media (max-width: 991px) {
+        .stations-container {
+          max-width: 100%;
+        }
+      }
+
+      .stations-grid {
+        gap: 20px;
+        display: flex;
+      }
+
+      @media (max-width: 991px) {
+        .stations-grid {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0px;
+        }
+      }
+
+      /* Station card */
+      .station-card {
+        border-radius: 14px;
+        background-color: #27282a;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        padding: 20px 15px;
+        flex-direction: column;
+        overflow: hidden;
+        align-items: stretch;
+        font-family:
+          "Gotham Pro",
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+      }
+
+      @media (max-width: 991px) {
+        .station-card {
+          margin-top: 40px;
+        }
+      }
+
+      .station-header {
+        display: flex;
+        align-items: stretch;
+        gap: 20px;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        justify-content: space-between;
+      }
+
+      @media (max-width: 991px) {
+        .station-header {
+          margin-right: 7px;
+        }
+      }
+
+      .station-location {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .city {
+        color: #fff;
+        font-size: 21px;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -0.41px;
+      }
+
+      @media (max-width: 991px) {
+        .city {
+          margin-right: 10px;
+        }
+      }
+
+      .address {
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 2;
+        margin-top: 5px;
+      }
+
+      .distance-badge {
+        background-blend-mode: normal;
+        border-radius: 112px;
+        background-color: rgba(20, 41, 104, 1);
+        align-self: flex-start;
+        padding: 6px 32px;
+        overflow: hidden;
+        font-size: 16px;
+        color: #ffffff;
+        font-weight: 500;
+        white-space: nowrap;
+        line-height: 2;
+      }
+
+      @media (max-width: 991px) {
+        .distance-badge {
+          padding-left: 20px;
+          white-space: initial;
+        }
+      }
+
+      .charging-info {
+        align-self: flex-start;
+        display: flex;
+        margin-top: 26px;
+        align-items: stretch;
+        gap: 9px;
+        font-size: 14px;
+        color: #fff;
+        font-weight: 400;
+        line-height: 2;
+      }
+
+      .charging-icon {
+        aspect-ratio: 0.72;
+        object-fit: contain;
+        object-position: center;
+        width: 13px;
+        fill: #fff;
+        align-self: flex-start;
+        flex-shrink: 0;
+      }
+
+      .charging-details {
+        flex-basis: auto;
+      }
+
+      .station-footer {
+        display: flex;
+        margin-top: 11px;
+        align-items: flex-start;
+        gap: 20px;
+        color: #fff;
+        font-weight: 400;
+        justify-content: space-between;
+      }
+
+      .station-stats {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        font-size: 14px;
+      }
+
+      .availability-info {
+        display: flex;
+        align-items: stretch;
+        gap: 8px;
+        line-height: 2;
+      }
+
+      .availability-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 17px;
+        fill: rgba(255, 255, 255, 0.6);
+        align-self: flex-start;
+        flex-shrink: 0;
+      }
+
+      .availability-text {
+        flex-grow: 1;
+        flex-shrink: 1;
+        width: 101px;
+      }
+
+      .time-info {
+        align-self: flex-start;
+        display: flex;
+        margin-top: 10px;
+        align-items: stretch;
+        gap: 8px;
+        line-height: 25px;
+      }
+
+      .time-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 17px;
+        fill: rgba(255, 255, 255, 0.6);
+        align-self: flex-start;
+        flex-shrink: 0;
+      }
+
+      .send-button {
+        font-feature-settings:
+          "liga" off,
+          "clig" off;
+        border-radius: 8px;
+        background-color: #4170eb;
+        margin-top: 19px;
+        padding: 11px 21px;
+        overflow: hidden;
+        font-size: 17px;
+        text-align: center;
+        line-height: 1;
+        border: none;
+        color: white;
+        font-family: inherit;
+        cursor: pointer;
+      }
+
+      @media (max-width: 991px) {
+        .send-button {
+          padding: 11px 20px;
+        }
+      }
+
+      /* Footer */
+      .app-footer {
+        width: 100%;
+      }
+
+      .footer-image {
+        aspect-ratio: 9.8;
+        object-fit: contain;
+        object-position: center;
+        width: 100%;
+        margin-top: 87px;
+      }
+
+      @media (max-width: 991px) {
+        .footer-image {
+          max-width: 100%;
+          margin-right: 8px;
+          margin-top: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="charging-stations">
+      <section class="charging-container">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/5a7eaeb219afe24d3b8fd0187bd9da078a86c29e47c329a604e468f9ca0469bc?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+          class="background-image"
+          alt="Background map"
+        />
+
+        <header class="app-header">
+          <div class="status-bar">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/e1c45224cd571daa285fcf33ea30ef26669cec87d129d15a36cc79c94ff06bb0?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="time-display"
+              alt="Time"
+            />
+            <div class="status-icons">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/35cf8751e1830a4ed855fee4ccc5b486e19bd23aa99382444dbe8804e6bb6484?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="network-icon"
+                alt="Network"
+              />
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/bca4303a8d0c75c84800602be1ffef10a7bab79be4557dc7bebad9b5328155ea?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="wifi-icon"
+                alt="WiFi"
+              />
+              <div class="battery-container">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/657b2695f2c7c050cd5b594f01648c433204c0dbf721c45f5582be02ad88a77b?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                  class="battery-icon"
+                  alt="Battery"
+                />
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/932f92fda1b7b8aabd0c87f54bb18574b4aa99be25807d1ebbae64227229c6d4?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                  class="battery-level"
+                  alt="Battery level"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="search-container">
+            <h1 class="search-text">find stations near you</h1>
+            <button class="search-button">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/289155509003732c8a1f1a0a77084dce5403542cd4775e2fcc2c0acf2c152124?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                alt="Search"
+              />
+            </button>
+          </div>
+
+          <button class="location-button">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/d724001dc9b8d8d5f06376736b8edcd2ba7081dfa94a1525b76e73db31e0645c?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              alt="Current location"
+            />
+          </button>
+        </header>
+
+        <section class="content-section">
+          <div class="filter-options">
+            <button class="filter-button">Filter</button>
+            <button class="sort-button">
+              <span class="sort-text">Sort by</span>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/820f2d6d73b4c4baf68e9a357e42092fe0623f0edacb0fc684f34cf642e5cf2e?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="sort-icon"
+                alt="Sort"
+              />
+            </button>
+          </div>
+
+          <div class="stations-container" data-el="div-1">
+            <div class="stations-grid">
+              <article class="station-card">
+                <div class="station-header">
+                  <div class="station-location">
+                    <h2 class="city">Ahmedabad</h2>
+                    <p class="address">Silver Oak University</p>
+                  </div>
+                  <span class="distance-badge">5.3km</span>
+                </div>
+
+                <div class="charging-info">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/c8d472846f876425c6e1bf84f076f86758c5cde4faa4831ee729c0dea04c275f?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                    class="charging-icon"
+                    alt="Charging"
+                  />
+                  <p class="charging-details">190 kW - 19 min to 100%</p>
+                </div>
+
+                <div class="station-footer">
+                  <div class="station-stats">
+                    <div class="availability-info">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/9b92b93c2a6a7a5936f6088142d4bacdc2036c3b1c5bc4e5d70df02f0f9f34c6?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                        class="availability-icon"
+                        alt="Available"
+                      />
+                      <p class="availability-text">1 of 3 available</p>
+                    </div>
+                    <div class="time-info">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/5db26e082225411925c05fbccbaaa081290ee5f7a387cb5487241e6c57cab902?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                        class="time-icon"
+                        alt="Time"
+                      />
+                      <p class="time-text">12 min</p>
+                    </div>
+                  </div>
+                  <a href="C:\Users\LENOVO\Desktop\wt code\check out\checkoutmerge.html"class="send-button">Send to car</a>
+                  <!-- <button class="send-button">Send to car</button> -->
+                </div>
+              </article>
+
+              <article class="station-card">
+                <div class="station-header">
+                  <div class="station-location">
+                    <h2 class="city">Gandhinagar</h2>
+                    <p class="address">Orange Hills, 90211</p>
+                  </div>
+                  <span class="distance-badge">5.8km</span>
+                </div>
+
+                <div class="charging-info">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/c8d472846f876425c6e1bf84f076f86758c5cde4faa4831ee729c0dea04c275f?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                    class="charging-icon"
+                    alt="Charging"
+                  />
+                  <p class="charging-details">200 kW - 15 min to 100%</p>
+                </div>
+
+                <div class="station-footer">
+                  <div class="station-stats">
+                    <div class="availability-info">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/9b92b93c2a6a7a5936f6088142d4bacdc2036c3b1c5bc4e5d70df02f0f9f34c6?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                        class="availability-icon"
+                        alt="Available"
+                      />
+                      <p class="availability-text">2 of 3 available</p>
+                    </div>
+                    <div class="time-info">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/5db26e082225411925c05fbccbaaa081290ee5f7a387cb5487241e6c57cab902?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                        class="time-icon"
+                        alt="Time"
+                      />
+                      <p class="time-text">14 min</p>
+                    </div>
+                  </div>
+                  <a href="C:\Users\LENOVO\Desktop\wt code\check out\checkoutmerge.html" class="send-button">Send to car</a>
+                  <!-- <button class="send-button">Send to car</button> -->
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <footer class="app-footer">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/845e75d9d76cb61e2b3e8237cba21e9bc452ec21be2a4793385ec92f98a4d703?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+            class="footer-image"
+            alt="Navigation bar"
+          />
+        </footer>
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        // Initialize state
+        const state = {};
+
+        let nodesToDestroy = [];
+        let pendingUpdate = false;
+
+        // Function to destroy nodes
+        function destroyAnyNodes() {
+          nodesToDestroy.forEach((el) => el.remove());
+          nodesToDestroy = [];
+        }
+
+        // Function to update data bindings and DOM
+        function update() {
+          if (pendingUpdate === true) {
+            return;
+          }
+          pendingUpdate = true;
+
+          // Set attributes on elements with data-el="div-1"
+          document.querySelectorAll("[data-el='div-1']").forEach((el) => {
+            el.setAttribute("space", "137");
+          });
+
+          destroyAnyNodes();
+
+          pendingUpdate = false;
+        }
+
+        // Add event listeners
+        function setupEventListeners() {
+          // Filter button
+          const filterButton = document.querySelector(".filter-button");
+          if (filterButton) {
+            filterButton.addEventListener("click", () => {
+              console.log("Filter button clicked");
+              // Implement filter functionality
+            });
+          }
+
+          // Sort button
+          const sortButton = document.querySelector(".sort-button");
+          if (sortButton) {
+            sortButton.addEventListener("click", () => {
+              console.log("Sort button clicked");
+              // Implement sort functionality
+            });
+          }
+
+          // Send to car buttons
+          const sendButtons = document.querySelectorAll(".send-button");
+          sendButtons.forEach((button) => {
+            button.addEventListener("click", (e) => {
+              const stationCard = e.currentTarget.closest(".station-card");
+              const cityElement = stationCard?.querySelector(".city");
+              const city = cityElement ? cityElement.textContent : "Unknown";
+              console.log(`Sending ${city} station to car`);
+              // Implement send to car functionality
+            });
+          });
+
+          // Location button
+          const locationButton = document.querySelector(".location-button");
+          if (locationButton) {
+            locationButton.addEventListener("click", () => {
+              console.log("Location button clicked");
+              // Implement location functionality
+            });
+          }
+
+          // Search button
+          const searchButton = document.querySelector(".search-button");
+          if (searchButton) {
+            searchButton.addEventListener("click", () => {
+              console.log("Search button clicked");
+              // Implement search functionality
+            });
+          }
+        }
+
+        // Initialize the app
+        function init() {
+          update();
+          setupEventListeners();
+        }
+
+        // Run initialization when DOM is loaded
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", init);
+        } else {
+          init();
+        }
+      })();
+    </script>
+  </body>
+</html>

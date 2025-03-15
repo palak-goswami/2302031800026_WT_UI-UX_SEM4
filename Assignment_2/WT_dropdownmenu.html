@@ -1,0 +1,1582 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UrbanEcoMove - Eco-Friendly Transportation Solutions</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+      }
+
+      .category-dropdown {
+        max-width: auto; 
+        height: auto; 
+        max-width: auto; 
+        height: auto; 
+        background-color: #fff;
+        display: flex;
+        padding-top: 88px;
+        padding-bottom: 201px;
+        flex-direction: column;
+        overflow: hidden;
+        align-items: center;
+      }
+
+      @media (max-width: 991px) {
+        .category-dropdown {
+          padding-bottom: 100px;
+        }
+      }
+
+      .main-header {
+        display: flex;
+        align-items: center;
+        gap: 40px 148px;
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 991px) {
+        .main-header {
+          max-width: 100%;
+        }
+      }
+
+      .header-container {
+        align-self: stretch;
+        display: flex;
+        min-width: 240px;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-items: start;
+        gap: 40px 190px;
+        color: #000;
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 991px) {
+        .header-container {
+          max-width: 100%;
+        }
+      }
+
+      .logo {
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        white-space: nowrap;
+        letter-spacing: 0.72px;
+        line-height: 1;
+        width: 118px;
+        padding-right: -70px;
+      }
+
+      @media (max-width: 991px) {
+        .logo {
+          white-space: initial;
+        }
+      }
+
+      .nav-links {
+        display: flex;
+        min-width: 240px;
+        align-items: start;
+        gap: 40px 48px;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        text-align: center;
+        justify-content: start;
+      }
+
+      .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        white-space: nowrap;
+        justify-content: start;
+        width: 48px;
+      }
+
+      @media (max-width: 991px) {
+        .nav-item {
+          white-space: initial;
+        }
+      }
+
+      .nav-indicator {
+        aspect-ratio: 47.62;
+        object-fit: contain;
+        object-position: center;
+        width: 48px;
+      }
+
+      .nav-contact {
+        white-space: nowrap;
+        width: 66px;
+      }
+
+      @media (max-width: 991px) {
+        .nav-contact {
+          white-space: initial;
+        }
+      }
+
+      .nav-about {
+        white-space: nowrap;
+        width: 48px;
+      }
+
+      @media (max-width: 991px) {
+        .nav-about {
+          white-space: initial;
+        }
+      }
+
+      .nav-signup {
+        width: 61px;
+      }
+
+      .search-container {
+        align-self: stretch;
+        display: flex;
+        min-width: 250px;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-items: center;
+        gap: 24px;
+        justify-content: start;
+      }
+
+      .search-box {
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        background-color: #f5f5f5;
+        align-self: stretch;
+        display: flex;
+        min-width: 240px;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 70px;
+        padding: 7px 12px 7px 20px;
+        flex-direction: column;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 12px;
+        color: #000;
+        font-weight: 400;
+      }
+
+      .search-input-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 34px;
+        justify-content: center;
+      }
+
+      .search-placeholder {
+        opacity: 0.5;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      .search-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 24px;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+        flex-shrink: 0;
+      }
+
+      .user-actions {
+        align-self: stretch;
+        display: flex;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-items: center;
+        gap: 16px;
+        justify-content: center;
+      }
+
+      .user-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 32px;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+        flex-shrink: 0;
+      }
+
+      .cart-icon {
+        pointer-events: auto;
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 32px;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+        flex-shrink: 0;
+      }
+
+      .dropdown-section {
+        align-self: stretch;
+        margin-top: 16px;
+        width: 100%;
+      }
+
+      @media (max-width: 991px) {
+        .dropdown-section {
+          max-width: 100%;
+          padding-right: 20px;
+        }
+      }
+
+      .dropdown-content {
+        gap: 20px;
+        display: flex;
+      }
+
+      @media (max-width: 991px) {
+        .dropdown-content {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0px;
+        }
+      }
+
+      .category-column {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        line-height: normal;
+        width: 61%;
+        margin-left: 0px;
+      }
+
+      @media (max-width: 991px) {
+        .category-column {
+          width: 100%;
+        }
+      }
+
+      .category-wrapper {
+        margin-right: -1007px;
+        width: 100%;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        color: #000;
+        font-weight: 400;
+        text-align: center;
+      }
+
+      @media (max-width: 991px) {
+        .category-wrapper {
+          max-width: 100%;
+        }
+      }
+
+      .divider-line {
+        opacity: 0.3;
+        border-color: rgba(0, 0, 0, 1);
+        border-style: solid;
+        border-width: 1px;
+        background-color: #000;
+        z-index: 10;
+        min-height: 1px;
+        width: 100%;
+      }
+
+      @media (max-width: 991px) {
+        .divider-line {
+          max-width: 100%;
+        }
+      }
+
+      .category-list-container {
+        display: flex;
+        margin-left: 135px;
+        width: 234px;
+        max-width: 100%;
+        align-items: stretch;
+        gap: 20px;
+        justify-content: space-between;
+      }
+
+      @media (max-width: 991px) {
+        .category-list-container {
+          margin-left: 10px;
+        }
+      }
+
+      .category-list {
+        display: flex;
+        margin-top: auto;
+        margin-bottom: auto;
+        flex-direction: column;
+        align-items: start;
+        width: 150px;
+        max-width: 100%;
+        justify-content: start;
+      }
+
+      .category-item {
+        align-self: stretch;
+        width: 100%;
+        gap: 40px 51px;
+      }
+
+      .category-item-carpooling {
+        margin-top: 16px;
+        gap: 40px 81px;
+        white-space: nowrap;
+      }
+
+      @media (max-width: 991px) {
+        .category-item-carpooling {
+          white-space: initial;
+        }
+      }
+
+      .category-item-ebikes {
+        margin-top: 16px;
+      }
+
+      .category-item-erickshaw {
+        margin-top: 16px;
+      }
+
+      .category-item-rentals {
+        margin-top: 16px;
+      }
+
+      .category-item-booking {
+        margin-top: 16px;
+      }
+
+      .category-item-scheduling {
+        margin-top: 16px;
+      }
+
+      .category-item-pricing {
+        margin-top: 16px;
+      }
+
+      .vertical-divider {
+        border-color: rgba(0, 0, 0, 1);
+        border-style: solid;
+        border-width: 1px;
+        width: 1px;
+        flex-shrink: 0;
+        height: 384px;
+      }
+
+      .image-column {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        line-height: normal;
+        width: 39%;
+        margin-left: 20px;
+      }
+
+      @media (max-width: 991px) {
+        .image-column {
+          width: 100%;
+        }
+      }
+
+      .banner-image {
+        aspect-ratio: 2.29;
+        object-fit: contain;
+        object-position: center;
+        width: 100%;
+        flex-grow: 1;
+      }
+
+      @media (max-width: 991px) {
+        .banner-image {
+          max-width: 100%;
+        }
+      }
+
+      .flash-sales-section {
+        margin-top: 128px;
+      }
+
+      @media (max-width: 991px) {
+        .flash-sales-section {
+          max-width: 100%;
+          margin-top: 40px;
+        }
+      }
+
+      .flash-sales-header {
+        display: flex;
+        align-items: end;
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 991px) {
+        .flash-sales-header {
+          max-width: 100%;
+        }
+      }
+
+      .flash-sales-title-container {
+        display: flex;
+        min-width: 240px;
+        align-items: end;
+        gap: 40px 87px;
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 991px) {
+        .flash-sales-title-container {
+          max-width: 100%;
+        }
+      }
+
+      .flash-sales-title-wrapper {
+        display: flex;
+        height: 103px;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: start;
+      }
+
+      .flash-sales-label-container {
+        align-self: start;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        justify-content: start;
+      }
+
+      .red-indicator {
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 20px;
+      }
+
+      .red-indicator-inner {
+        border-radius: 4px;
+        background-color: #db4444;
+        display: flex;
+        flex-shrink: 0;
+        height: 40px;
+      }
+
+      .todays-label {
+        color: #db4444;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      .flash-sales-heading {
+        color: #000;
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 1;
+        letter-spacing: 1.44px;
+        margin-top: 24px;
+      }
+
+      .countdown-timer {
+        display: flex;
+        min-width: 240px;
+        align-items: stretch;
+        gap: 17px;
+        color: #000;
+        white-space: nowrap;
+        width: 302px;
+      }
+
+      @media (max-width: 991px) {
+        .countdown-timer {
+          white-space: initial;
+        }
+      }
+
+      .timer-days {
+        min-height: 50px;
+      }
+
+      @media (max-width: 991px) {
+        .timer-days {
+          white-space: initial;
+        }
+      }
+
+      .timer-label {
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .timer-value {
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: 1.28px;
+        margin-top: 4px;
+      }
+
+      .timer-separator {
+        align-self: end;
+        display: flex;
+        min-height: 16px;
+        margin-top: 26px;
+      }
+
+      .timer-hours {
+        height: 50px;
+      }
+
+      @media (max-width: 991px) {
+        .timer-hours {
+          white-space: initial;
+        }
+      }
+
+      .timer-minutes {
+        min-height: 50px;
+      }
+
+      @media (max-width: 991px) {
+        .timer-minutes {
+          white-space: initial;
+        }
+      }
+
+      .timer-seconds {
+        height: 50px;
+      }
+
+      @media (max-width: 991px) {
+        .timer-seconds {
+          white-space: initial;
+        }
+      }
+
+      .navigation-arrows {
+        display: flex;
+        align-items: start;
+        gap: 8px;
+        justify-content: start;
+      }
+
+      .arrow-left {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 46px;
+        flex-shrink: 0;
+      }
+
+      .arrow-right {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 46px;
+        flex-shrink: 0;
+      }
+
+      .products-container {
+        position: relative;
+        display: flex;
+        margin-top: 40px;
+        align-items: start;
+        gap: 40px 178px;
+        justify-content: start;
+      }
+
+      @media (max-width: 991px) {
+        .products-container {
+          max-width: 100%;
+        }
+      }
+
+      .product-card {
+        z-index: 0;
+        display: flex;
+        min-width: 240px;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: start;
+        width: 270px;
+      }
+
+      .product-image-container {
+        border-radius: 4px;
+        background-color: #f5f5f5;
+        display: flex;
+        width: 100%;
+        max-width: 270px;
+        padding: 12px 12px 162px;
+        align-items: start;
+        gap: 20px;
+        overflow: hidden;
+        justify-content: space-between;
+      }
+
+      @media (max-width: 991px) {
+        .product-image-container {
+          padding-bottom: 100px;
+        }
+      }
+
+      .discount-badge {
+        align-self: stretch;
+        border-radius: 4px;
+        background-color: #db4444;
+        padding: 4px 12px;
+        gap: 10px;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 12px;
+        color: #fafafa;
+        font-weight: 400;
+        white-space: nowrap;
+      }
+
+      @media (max-width: 991px) {
+        .discount-badge {
+          white-space: initial;
+        }
+      }
+
+      .wishlist-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 34px;
+      }
+
+      .wishlist-circle {
+        margin-top: 8px;
+        width: 34px;
+      }
+
+      .wishlist-circle-inner {
+        background-color: #fff;
+        border-radius: 50%;
+        display: flex;
+        width: 100%;
+        flex-shrink: 0;
+        height: 34px;
+      }
+
+      .product-info {
+        align-self: start;
+        display: flex;
+        margin-top: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        justify-content: start;
+      }
+
+      .product-title {
+        color: #000;
+      }
+
+      .product-price {
+        align-self: start;
+        display: flex;
+        margin-top: 8px;
+        align-items: start;
+        gap: 12px;
+        white-space: nowrap;
+        justify-content: start;
+      }
+
+      @media (max-width: 991px) {
+        .product-price {
+          white-space: initial;
+        }
+      }
+
+      .sale-price {
+        color: #db4444;
+      }
+
+      .original-price {
+        color: #000;
+        text-decoration-line: strikethrough;
+        opacity: 0.5;
+        text-decoration: line-through;
+      }
+
+      .product-rating {
+        display: flex;
+        margin-top: 8px;
+        align-items: start;
+        gap: 8px;
+        font-size: 14px;
+        color: #000;
+        font-weight: 600;
+        white-space: nowrap;
+        justify-content: start;
+      }
+
+      @media (max-width: 991px) {
+        .product-rating {
+          white-space: initial;
+        }
+      }
+
+      .rating-stars {
+        aspect-ratio: 5;
+        object-fit: contain;
+        object-position: center;
+        width: 100px;
+        flex-shrink: 0;
+      }
+
+      .rating-count {
+        opacity: 0.5;
+        width: 32px;
+      }
+
+      .product-card-with-cta {
+        border-radius: 4px;
+        background-color: #f5f5f5;
+        display: flex;
+        width: 100%;
+        max-width: 270px;
+        padding: 11px 12px;
+        flex-direction: column;
+        overflow: hidden;
+        align-items: stretch;
+      }
+
+      .product-card-header {
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+        gap: 20px;
+        justify-content: space-between;
+      }
+
+      .discount-badge-alt {
+        align-self: start;
+        border-radius: 4px;
+        background-color: #db4444;
+        padding: 4px 12px;
+        gap: 10px;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 12px;
+        color: #fafafa;
+        font-weight: 400;
+        white-space: nowrap;
+      }
+
+      @media (max-width: 991px) {
+        .discount-badge-alt {
+          white-space: initial;
+        }
+      }
+
+      .add-to-cart-btn {
+        color: #fff;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        align-self: center;
+        margin-top: 129px;
+      }
+
+      @media (max-width: 991px) {
+        .add-to-cart-btn {
+          margin-top: 40px;
+        }
+      }
+
+      .product-image-placeholder {
+        aspect-ratio: 2;
+        object-fit: contain;
+        object-position: center;
+        width: 272px;
+        position: absolute;
+        z-index: 0;
+        min-width: 240px;
+        flex-shrink: 0;
+        left: 434px;
+        top: 54px;
+        height: 136px;
+      }
+
+      .product-image-placeholder-alt {
+        aspect-ratio: 2;
+        object-fit: contain;
+        object-position: center;
+        width: 272px;
+        position: absolute;
+        z-index: 0;
+        min-width: 240px;
+        flex-shrink: 0;
+        right: 12px;
+        top: 46px;
+        height: 136px;
+      }
+
+      .product-image-placeholder-left {
+        aspect-ratio: 2.06;
+        object-fit: contain;
+        object-position: center;
+        width: 262px;
+        position: absolute;
+        z-index: 0;
+        min-width: 240px;
+        flex-shrink: 0;
+        left: -29px;
+        top: 71px;
+        height: 127px;
+      }
+
+      .view-all-btn {
+        align-self: stretch;
+        border-radius: 4px;
+        background-color: #db4444;
+        margin-top: 60px;
+        padding: 16px 48px;
+        gap: 10px;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        color: #fafafa;
+        font-weight: 500;
+      }
+
+      @media (max-width: 991px) {
+        .view-all-btn {
+          padding-left: 20px;
+          padding-right: 20px;
+          margin-top: 40px;
+        }
+      }
+
+      .section-divider {
+        border-color: rgba(0, 0, 0, 1);
+        border-style: solid;
+        border-width: 1px;
+        margin-top: 60px;
+        width: 1170px;
+        flex-shrink: 0;
+        max-width: 100%;
+        height: 1px;
+      }
+
+      @media (max-width: 991px) {
+        .section-divider {
+          margin-top: 40px;
+        }
+      }
+
+      .categories-section {
+        margin-top: 79px;
+      }
+
+      @media (max-width: 991px) {
+        .categories-section {
+          max-width: 100%;
+          margin-top: 40px;
+        }
+      }
+
+      .categories-header {
+        display: flex;
+        align-items: end;
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 991px) {
+        .categories-header {
+          max-width: 100%;
+        }
+      }
+
+      .categories-title-container {
+        display: flex;
+        min-width: 240px;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: start;
+      }
+
+      .categories-label-container {
+        align-self: start;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        justify-content: start;
+      }
+
+      .categories-indicator {
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 20px;
+      }
+
+      .categories-indicator-inner {
+        border-radius: 4px;
+        background-color: #db4444;
+        display: flex;
+        flex-shrink: 0;
+        height: 40px;
+      }
+
+      .categories-label {
+        color: #db4444;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      .browse-categories-heading {
+        color: #000;
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 1;
+        letter-spacing: 1.44px;
+        margin-top: 20px;
+      }
+
+      .categories-grid {
+        display: flex;
+        margin-top: 60px;
+        align-items: start;
+        gap: 30px;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        color: #000;
+        font-weight: 400;
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 991px) {
+        .categories-grid {
+          max-width: 100%;
+          margin-top: 40px;
+        }
+      }
+
+      .category-card {
+        border-radius: 4px;
+        border-color: rgba(0, 0, 0, 0.3);
+        border-style: solid;
+        border-width: 1px;
+        display: flex;
+        padding: 25px 34px;
+        flex-direction: column;
+        overflow: hidden;
+        width: 170px;
+      }
+
+      @media (max-width: 991px) {
+        .category-card {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+
+      .category-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 56px;
+        align-self: center;
+      }
+
+      .category-name {
+        align-self: end;
+        margin-top: 16px;
+      }
+
+      .category-card-alt {
+        border-radius: 4px;
+        border-color: rgba(0, 0, 0, 0.3);
+        border-style: solid;
+        border-width: 1px;
+        display: flex;
+        padding: 25px 34px;
+        flex-direction: column;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 170px;
+      }
+
+      @media (max-width: 991px) {
+        .category-card-alt {
+          padding-left: 20px;
+          padding-right: 20px;
+          white-space: initial;
+        }
+      }
+
+      .category-name-start {
+        align-self: start;
+        margin-top: 16px;
+      }
+
+      .category-card-centered {
+        border-radius: 4px;
+        border-color: rgba(0, 0, 0, 0.3);
+        border-style: solid;
+        border-width: 1px;
+        display: flex;
+        padding: 25px 34px;
+        flex-direction: column;
+        overflow: hidden;
+        align-items: center;
+        white-space: nowrap;
+        width: 170px;
+      }
+
+      @media (max-width: 991px) {
+        .category-card-centered {
+          padding-left: 20px;
+          padding-right: 20px;
+          white-space: initial;
+        }
+      }
+
+      .category-name-center {
+        margin-top: 16px;
+      }
+
+      .category-card-stretch {
+        border-radius: 4px;
+        border-color: rgba(0, 0, 0, 0.3);
+        border-style: solid;
+        border-width: 1px;
+        display: flex;
+        padding: 25px 34px;
+        flex-direction: column;
+        overflow: hidden;
+        align-items: stretch;
+        white-space: nowrap;
+        width: 170px;
+      }
+
+      @media (max-width: 991px) {
+        .category-card-stretch {
+          padding-left: 20px;
+          padding-right: 20px;
+          white-space: initial;
+        }
+      }
+
+      .footer-divider {
+        border-color: rgba(0, 0, 0, 1);
+        border-style: solid;
+        border-width: 1px;
+        margin-top: 70px;
+        width: 1170px;
+        flex-shrink: 0;
+        max-width: 100%;
+        height: 1px;
+      }
+
+      @media (max-width: 991px) {
+        .footer-divider {
+          margin-top: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="category-dropdown">
+      <div class="main-header">
+        <div class="header-container">
+          <div class="logo">UrbanEcoMove</div>
+          <div class="nav-links">
+            <div class="nav-item">
+              <div>Home</div>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/7c4a968e61751929cf46491fa57e5fa87f2f3c7c5d51673c41475a8954433106?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="nav-indicator"
+                alt="Active indicator"
+              />
+              <div class="nav-links">
+                <a href="C:\Users\LENOVO\Desktop\wt code\404 error\errormerge.html" class="nav-link">Contact</a>
+                <a href="C:\Users\LENOVO\Desktop\wt code\about\abmerge.html" class="nav-link">About</a>
+                <a href="C:\Users\LENOVO\Desktop\wt code\sign in\merge.html"class="nav-link">Sign up</a>
+            </div>
+        </div>
+        <div class="search-container">
+          <div class="search-box">
+            <div class="search-input-wrapper">
+              <div class="search-placeholder">What are you looking for?</div>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/7a36546edd30f9649053810fdbf6c98d92541e863e7b8b10ab13af855343b34e?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="search-icon"
+                alt="Search icon"
+              />
+            </div>
+          </div>
+          <div class="user-actions">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/850597cc14d3bfef027aa097fc5bca3ac1b650d683dc1d3c8c0134d5cd9a061d?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="user-icon"
+              alt="User account"
+            />
+            <a href="C:\Users\LENOVO\Desktop\wt code\check out\checkoutmerge.html">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/9eff2912e32682d42882b3342d012399878fbacd6f0d3fceb6a27e90576b90a5?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="cart-icon"
+              alt="Shopping cart"
+            />
+            </a>
+            <a href="C:\Users\LENOVO\Desktop\wt code\account\accmerge.html">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/505a01368e57ac667ecd551fd161eb3fa8202cee72841e5b11d9f712055e4607?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="action-icon"
+                alt="Cart"
+              />
+              </a>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="dropdown-section" data-el="div-1">
+        <div class="dropdown-content">
+          <div class="category-column">
+            <div class="category-wrapper">
+              <div class="divider-line"></div>
+              <div class="category-list-container">
+                <div class="category-list">
+                  <div class="category-item">EV Buses</div>
+                  <div class="category-item-carpooling">CarPooling</div>
+                  <div class="category-item-ebikes">E-Bikes</div>
+                  <div class="category-item-erickshaw">E-Rickshaw</div>
+                  <div class="category-item-rentals">Rentals</div>
+                  <div class="category-item-booking">Booking</div>
+                  <div class="category-item-scheduling">Scheduling</div>
+                  <div class="category-item-pricing">Pricing</div>
+                </div>
+                <div class="vertical-divider"></div>
+              </div>
+            </div>
+          </div>
+          <div class="image-column">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/c48ecb80390fe12f423d24ca8c8eb8f48e46783a585ae84b66b51cc2984b3d8a?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="banner-image"
+              alt="Eco-friendly transportation"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="flash-sales-section">
+        <div class="flash-sales-header">
+          <div class="flash-sales-title-container">
+            <div class="flash-sales-title-wrapper">
+              <div class="flash-sales-label-container">
+                <div class="red-indicator">
+                  <div class="red-indicator-inner"></div>
+                </div>
+                <div class="todays-label">Today's</div>
+              </div>
+              <div class="flash-sales-heading">Flash Sales</div>
+            </div>
+            <div class="countdown-timer">
+              <div class="timer-days">
+                <div class="timer-label">Days</div>
+                <div class="timer-value">03</div>
+              </div>
+              <div class="timer-separator"></div>
+              <div class="timer-hours">
+                <div class="timer-label">Hours</div>
+                <div class="timer-value">23</div>
+              </div>
+              <div class="timer-separator"></div>
+              <div class="timer-minutes">
+                <div class="timer-label">Minutes</div>
+                <div class="timer-value">19</div>
+              </div>
+              <div class="timer-separator"></div>
+              <div class="timer-seconds">
+                <div class="timer-label">Seconds</div>
+                <div class="timer-value">56</div>
+              </div>
+            </div>
+          </div>
+          <div class="navigation-arrows">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/6d46c131187bfff9eb633481579a064341b51d7196040ee40dd3f9577e445a5e?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="arrow-left"
+              alt="Previous"
+            />
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/e88e31fcac886e936832d43b7fb2b7a3e219274da66d8e9d07a08a6cc7094c1b?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="arrow-right"
+              alt="Next"
+            />
+          </div>
+        </div>
+
+        <div class="products-container">
+          <div class="product-card">
+            <div class="product-image-container">
+              <div class="discount-badge">-40%</div>
+              <div>
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/00d93adab53c5214ab1a164999c542db25c2e68622e0085e7c9140fbeae9a9e5?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                  class="wishlist-icon"
+                  alt="Add to wishlist"
+                />
+                <div class="wishlist-circle">
+                  <div class="wishlist-circle-inner"></div>
+                </div>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-title">EV Trucks</div>
+              <div class="product-price">
+                <div class="sale-price">$120</div>
+                <div class="original-price">$160</div>
+              </div>
+              <div class="product-rating">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/f79bd71a6471f38d5d1fc5e45c151fa99346fc4a5342fd2b25d87f1e68ade395?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                  class="rating-stars"
+                  alt="Rating stars"
+                />
+                <div class="rating-count">(88)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-card-with-cta">
+              <div class="product-card-header">
+                <div class="discount-badge-alt">-35%</div>
+                <div>
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/00d93adab53c5214ab1a164999c542db25c2e68622e0085e7c9140fbeae9a9e5?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                    class="wishlist-icon"
+                    alt="Add to wishlist"
+                  />
+                  <div class="wishlist-circle">
+                    <div class="wishlist-circle-inner"></div>
+                  </div>
+                </div>
+              </div>
+              <a href="C:\Users\LENOVO\Desktop\wt code\check out\checkoutmerge.html" class="add-to-cart-btn">Add To Cart</a>
+            </div>
+            <div class="product-info">
+              <div class="product-title">EV Cars</div>
+              <div class="product-price">
+                <div class="sale-price">$960</div>
+                <div class="original-price">$1160</div>
+              </div>
+              <div class="product-rating">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/c35d903ef32712f74f1d691c7776b06b738b9c9c861a4482d47d9f9e4b9b6d4a?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                  class="rating-stars"
+                  alt="Rating stars"
+                />
+                <div class="rating-count">(75)</div>
+              </div>
+            </div>
+          </div>
+
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/d506d81026a156043176374888c2d68bd4cbef8bb380054c7b54fd40403542ed?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+            class="product-image-placeholder"
+            alt="Product"
+          />
+
+          <div class="product-card">
+            <div class="product-image-container">
+              <div class="discount-badge">-30%</div>
+              <div>
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/00d93adab53c5214ab1a164999c542db25c2e68622e0085e7c9140fbeae9a9e5?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                  class="wishlist-icon"
+                  alt="Add to wishlist"
+                />
+                <div class="wishlist-circle">
+                  <div class="wishlist-circle-inner"></div>
+                </div>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-title">CarPooling</div>
+              <div class="product-price">
+                <div class="sale-price">$370</div>
+                <div class="original-price">$400</div>
+              </div>
+              <div class="product-rating">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/f79bd71a6471f38d5d1fc5e45c151fa99346fc4a5342fd2b25d87f1e68ade395?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                  class="rating-stars"
+                  alt="Rating stars"
+                />
+                <div class="rating-count">(99)</div>
+              </div>
+            </div>
+          </div>
+
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/d506d81026a156043176374888c2d68bd4cbef8bb380054c7b54fd40403542ed?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+            class="product-image-placeholder-alt"
+            alt="Product"
+          />
+          <a href="C:\Users\LENOVO\Desktop\wt code\check out\checkoutmerge.html">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/900707ccd489c7823fe064ea33b0e6c3dcc3471df928a99021e1133cc11f3557?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+            class="product-image-placeholder-left"
+            alt="Product">
+          </a>
+        </div>
+      </div>
+
+      <div class="view-all-btn">View All Products</div>
+
+      <div class="section-divider"></div>
+
+      <div class="categories-section">
+        <div class="categories-header">
+          <div class="categories-title-container">
+            <div class="categories-label-container">
+              <div class="categories-indicator">
+                <div class="categories-indicator-inner"></div>
+              </div>
+              <div class="categories-label">Categories</div>
+            </div>
+            <div class="browse-categories-heading">Browse By Category</div>
+          </div>
+          <div class="navigation-arrows">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/6d46c131187bfff9eb633481579a064341b51d7196040ee40dd3f9577e445a5e?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="arrow-left"
+              alt="Previous"
+            />
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/e88e31fcac886e936832d43b7fb2b7a3e219274da66d8e9d07a08a6cc7094c1b?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="arrow-right"
+              alt="Next"
+            />
+          </div>
+        </div>
+
+        <div class="categories-grid">
+          <div class="category-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/b4415b3c5e369d24a1a848e4bc9e320d82fc74ba91c7e1cfed2c2f15930f3b5b?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="category-icon"
+              alt="Mobile App"
+            />
+            <div class="category-name">Mobile App</div>
+          </div>
+
+          <div class="category-card-alt">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/46d2776f4ef9f055a1d2852149b6177ec8ecea497752546c5dce1cdf45ff3a1b?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="category-icon"
+              alt="Desktops"
+            />
+            <div class="category-name-start">Desktops</div>
+          </div>
+
+          <div class="category-card-alt">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/8f4d8aa620e805c8ec080b1415da5eaf59b6e3796dd55c3bcb362e57b3ab2420?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="category-icon"
+              alt="Wearables"
+            />
+            <div class="category-name-start">Wearables</div>
+          </div>
+
+          <div class="category-card-centered">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/a3ceec4596ea17655493dac14c77090c75962a66f0bf60ffcf1907770e7b3dea?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="category-icon"
+              alt="Camera"
+            />
+            <div class="category-name-center">Camera</div>
+          </div>
+
+          <div class="category-card-stretch">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/3d492598695e07aa979b31b90abfe24c697d41acb9883ff1802c301e5be9d000?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="category-icon"
+              alt="HeadPhones"
+            />
+            <div class="category-name-center">HeadPhones</div>
+          </div>
+
+          <div class="category-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/7e10cbd562b2a38881dbc0df52a93391e4554a9efd866d858b792fa714ef5a32?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="category-icon"
+              alt="Help Centre"
+            />
+            <div class="category-name">Help Centre</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+    </div>
+
+    <script>
+      (() => {
+        const state = {};
+
+        let context = null;
+        let nodesToDestroy = [];
+        let pendingUpdate = false;
+
+        function destroyAnyNodes() {
+          // destroy current view template refs before rendering again
+          nodesToDestroy.forEach((el) => el.remove());
+          nodesToDestroy = [];
+        }
+
+        // Function to update data bindings and loops
+        // call update() when you mutate state and need the updates to reflect
+        // in the dom
+        function update() {
+          if (pendingUpdate === true) {
+            return;
+          }
+          pendingUpdate = true;
+
+          document.querySelectorAll("[data-el='div-1']").forEach((el) => {
+            el.setAttribute("space", 0);
+          });
+
+          destroyAnyNodes();
+
+          pendingUpdate = false;
+        }
+
+        // Update with initial state on first load
+        update();
+      })();
+    </script>
+  </body>
+</html>

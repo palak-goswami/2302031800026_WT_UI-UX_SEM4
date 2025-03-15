@@ -1,0 +1,983 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Management - UrbanEcoMove</title>
+    <style>
+      /* Account Page Styles */
+      .account-page {
+        max-width: auto; 
+        height: auto; 
+        max-width: auto; 
+        height: auto; 
+        background-color: #fff;
+        display: flex;
+        padding-top: 88px;
+        padding-bottom: 47px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      /* Header Styles */
+      .site-header {
+        align-self: center;
+        display: flex;
+        align-items: center;
+        gap: 40px 130px;
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 991px) {
+        .site-header {
+          max-width: 100%;
+        }
+      }
+
+      .header-main {
+        align-self: stretch;
+        display: flex;
+        min-width: 240px;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-items: start;
+        gap: 40px 160px;
+        color: #000;
+        white-space: nowrap;
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 991px) {
+        .header-main {
+          max-width: 100%;
+          white-space: initial;
+        }
+      }
+
+      .logo {
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 0.72px;
+        line-height: 1;
+        width: 118px;
+        padding-right: -70px;
+        margin: 0;
+      }
+
+      @media (max-width: 991px) {
+        .logo {
+          white-space: initial;
+        }
+      }
+
+      .main-nav {
+        display: flex;
+        min-width: 240px;
+        align-items: start;
+        gap: 40px 48px;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        text-align: center;
+        justify-content: start;
+      }
+
+      @media (max-width: 991px) {
+        .main-nav {
+          white-space: initial;
+        }
+      }
+
+      .nav-link {
+        color: #000;
+        text-decoration: none;
+        width: 48px;
+      }
+
+      .nav-link:nth-child(2) {
+        width: 66px;
+      }
+
+      .nav-link:nth-child(4) {
+        width: 61px;
+      }
+
+      @media (max-width: 991px) {
+        .nav-link {
+          white-space: initial;
+        }
+
+        .nav-link:nth-child(4) {
+          padding-right: -3px;
+        }
+      }
+
+      .header-actions {
+        align-self: stretch;
+        display: flex;
+        min-width: 240px;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-items: center;
+        gap: 24px;
+        justify-content: start;
+      }
+
+      .search-bar {
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        background-color: #f5f5f5;
+        align-self: stretch;
+        display: flex;
+        min-width: 240px;
+        margin-top: auto;
+        margin-bottom: auto;
+        padding-left: 20px;
+        padding-right: 12px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        flex-direction: column;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 12px;
+        color: #000;
+        font-weight: 400;
+      }
+
+      .search-input-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 34px;
+        justify-content: center;
+      }
+
+      .search-placeholder {
+        opacity: 0.5;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin: 0;
+      }
+
+      .search-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 24px;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+        flex-shrink: 0;
+      }
+
+      .user-actions {
+        align-self: stretch;
+        display: flex;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-items: center;
+        gap: 16px;
+        justify-content: center;
+      }
+
+      .action-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 32px;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+        flex-shrink: 0;
+      }
+
+      .notification {
+        fill: #db4444;
+      }
+
+      .divider {
+        opacity: 0.3;
+        border-color: rgba(0, 0, 0, 1);
+        border-style: solid;
+        border-width: 1px;
+        background-color: #000;
+        min-height: 1px;
+        margin-top: 16px;
+        width: 100%;
+      }
+
+      @media (max-width: 991px) {
+        .divider {
+          max-width: 100%;
+        }
+      }
+
+      /* Account Section */
+      .account-section {
+        align-self: end;
+        z-index: 10;
+        display: flex;
+        margin-right: 133px;
+        width: 590px;
+        max-width: 100%;
+        padding-top: 80px;
+        flex-direction: column;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      @media (max-width: 991px) {
+        .account-section {
+          margin-right: 10px;
+        }
+      }
+
+      .welcome-message {
+        color: #000;
+        align-self: start;
+        margin-top: 80px;
+        margin: 0;
+      }
+
+      @media (max-width: 991px) {
+        .welcome-message {
+          margin-top: 40px;
+        }
+      }
+
+      .account-dropdown {
+        border-radius: 4px;
+        background-color: rgba(219, 68, 68, 1);
+        align-self: end;
+        z-index: 10;
+        margin-top: -101px;
+        width: 224px;
+        max-width: 100%;
+        padding: 18px 12px 10px;
+        overflow: hidden;
+        color: #fafafa;
+        text-align: center;
+      }
+
+      .dropdown-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+      }
+
+      .dropdown-item {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        justify-content: start;
+        margin-top: 13px;
+      }
+
+      .dropdown-item:first-child {
+        margin-top: 0;
+      }
+
+      .dropdown-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 32px;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+        flex-shrink: 0;
+      }
+
+      .dropdown-text {
+        align-self: stretch;
+        margin: 0;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      .icon-mallbag {
+        align-self: stretch;
+        display: flex;
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 24px;
+        flex-shrink: 0;
+        height: 24px;
+      }
+
+      /* Account Content */
+      .account-content {
+        align-self: center;
+        display: flex;
+        margin-top: -128px;
+        width: 100%;
+        max-width: 1170px;
+        flex-direction: column;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+      }
+
+      @media (max-width: 991px) {
+        .account-content {
+          max-width: 100%;
+        }
+      }
+
+      /* Sidebar */
+      .account-sidebar {
+        display: flex;
+        width: 200px;
+        max-width: 100%;
+        flex-direction: column;
+        align-items: start;
+        color: #000;
+        font-weight: 400;
+      }
+
+      .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 14px;
+        justify-content: start;
+      }
+
+      .breadcrumb-link {
+        opacity: 0.5;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+        color: #000;
+        text-decoration: none;
+      }
+
+      .breadcrumb-current {
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      .sidebar-heading {
+        font-weight: 500;
+        margin-top: 80px;
+        font-size: 16px;
+        margin-bottom: 0;
+      }
+
+      .sidebar-heading:nth-of-type(2) {
+        margin-top: 24px;
+      }
+
+      .sidebar-heading:nth-of-type(3) {
+        margin-top: 16px;
+      }
+
+      @media (max-width: 991px) {
+        .sidebar-heading {
+          margin-top: 40px;
+        }
+      }
+
+      .sidebar-menu {
+        list-style: none;
+        padding: 0;
+        margin: 16px 0 0;
+        align-self: end;
+      }
+
+      .sidebar-menu:nth-of-type(2) {
+        align-self: center;
+      }
+
+      .sidebar-item {
+        opacity: 0.5;
+        margin-top: 8px;
+      }
+
+      .sidebar-item.active {
+        color: #db4444;
+        opacity: 1;
+      }
+
+      .sidebar-item:first-child {
+        margin-top: 0;
+      }
+
+      /* Profile Edit Section */
+      .profile-edit {
+        border-radius: 4px;
+        box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
+        background-color: #fff;
+        align-self: end;
+        z-index: 10;
+        display: flex;
+        margin-top: -280px;
+        width: 870px;
+        max-width: 100%;
+        padding: 40px 80px;
+        flex-direction: column;
+        overflow: hidden;
+        align-items: stretch;
+      }
+
+      @media (max-width: 991px) {
+        .profile-edit {
+          margin-top: -200px;
+          padding: 40px 20px;
+        }
+      }
+
+      .profile-heading {
+        color: #db4444;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1.4;
+        align-self: start;
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+
+      .profile-form {
+        width: 100%;
+      }
+
+      .form-row {
+        display: flex;
+        margin-top: 16px;
+        align-items: start;
+        gap: 40px 50px;
+        color: #000;
+        font-weight: 400;
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+
+      .form-row:first-child {
+        margin-top: 0;
+      }
+
+      @media (max-width: 991px) {
+        .form-row {
+          max-width: 100%;
+        }
+      }
+
+      .form-group {
+        min-width: 240px;
+        width: 330px;
+      }
+
+      .form-group.full-width {
+        width: 100%;
+      }
+
+      .input-container {
+        margin-top: 8px;
+        max-width: 100%;
+        width: 330px;
+        white-space: nowrap;
+      }
+
+      .password-section .input-container {
+        width: 100%;
+        margin-top: 16px;
+      }
+
+      .password-section .input-container:first-child {
+        margin-top: 0;
+      }
+
+      @media (max-width: 991px) {
+        .input-container {
+          white-space: initial;
+        }
+      }
+
+      .input-wrapper {
+        border-radius: 4px;
+        background-color: #f5f5f5;
+        display: flex;
+        padding: 13px 16px;
+        flex-direction: column;
+        overflow: hidden;
+        align-items: start;
+        justify-content: center;
+      }
+
+      @media (max-width: 991px) {
+        .input-wrapper {
+          padding-right: 20px;
+          white-space: initial;
+        }
+      }
+
+      .form-input {
+        opacity: 0.5;
+        background: transparent;
+        border: none;
+        width: 100%;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+      }
+
+      .form-input:focus {
+        outline: none;
+      }
+
+      .password-section {
+        margin-top: 24px;
+        color: #000;
+        font-weight: 400;
+      }
+
+      @media (max-width: 991px) {
+        .password-section {
+          max-width: 100%;
+        }
+      }
+
+      .form-actions {
+        align-self: end;
+        display: flex;
+        margin-top: 24px;
+        align-items: center;
+        gap: 32px;
+        justify-content: start;
+      }
+
+      .btn-cancel {
+        color: #000;
+        font-weight: 400;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+      }
+
+      .btn-save {
+        align-self: stretch;
+        border-radius: 4px;
+        background-color: #db4444;
+        margin-top: auto;
+        margin-bottom: auto;
+        padding: 16px 48px;
+        gap: 10px;
+        color: #fafafa;
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+      }
+
+      @media (max-width: 991px) {
+        .btn-save {
+          padding: 16px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="account-page">
+      <header class="site-header">
+        <div class="header-main">
+          <h1 class="logo">UrbanEcoMove</h1>
+          <nav class="main-nav">
+            <a href="C:\Users\LENOVO\Desktop\wt code\category dropdown\dropdownmenu.html" class="nav-link">Home</a>
+            <a href="C:\Users\LENOVO\Desktop\wt code\404 error\errormerge.html" class="nav-link">Contact</a>
+            <a href="C:\Users\LENOVO\Desktop\wt code\about\abmerge.html" class="nav-link">About</a>
+            <a href="C:\Users\LENOVO\Desktop\wt code\splash screen\splashmerge.html" class="nav-link">Services</a>
+          </nav>
+        </div>
+        <div class="header-actions">
+          <div class="search-bar">
+            <div class="search-input-wrapper">
+              <p class="search-placeholder">What are you looking for?</p>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/7a36546edd30f9649053810fdbf6c98d92541e863e7b8b10ab13af855343b34e?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="search-icon"
+                alt="Search"
+              />
+            </div>
+          </div>
+          <div class="user-actions">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/850597cc14d3bfef027aa097fc5bca3ac1b650d683dc1d3c8c0134d5cd9a061d?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="action-icon"
+              alt="Wishlist"
+            />
+            <a href="C:\Users\LENOVO\Desktop\wt code\category dropdown\dropdownmenu.html">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/b8271502a2876bb3b6063268c10c6816f284c0b61e357253322dae4e6eac2662?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="action-icon"
+              alt="Cart"
+            />
+            </a>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/5da7135e32227c2b57956f4aeebb39217ace541f01beff22a9a74f318d6ed56d?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="action-icon notification"
+              alt="Notifications"
+            />
+          </div>
+        </div>
+      </header>
+
+      <hr class="divider" />
+
+      <section class="account-section">
+        <p class="welcome-message">Welcome! UrbanEcoMove</p>
+
+        <div class="account-dropdown">
+          <div class="dropdown-menu">
+            <div class="dropdown-item">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/d4d3933bd60bc7f03e80195cff61581a8fb5573107350371a713dbfa0482821b?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="dropdown-icon"
+                alt="Account"
+              />
+              <p class="dropdown-text">Manage My Account</p>
+            </div>
+            <div class="dropdown-item">
+              <div class="icon-mallbag"></div>
+              <p class="dropdown-text">My Order</p>
+            </div>
+            <div class="dropdown-item">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/ccdaa3b26168e7aae9fab9d88fef19f79ddbfc7f7f57b63708a1cc60a0551020?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="dropdown-icon"
+                alt="Cancellations"
+              />
+              <p class="dropdown-text">My Cancellations</p>
+            </div>
+            <div class="dropdown-item">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/943c84ae3047cf3e3844a45ef6f5c62cb367d6032aaa74048785a1d185e49909?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="dropdown-icon"
+                alt="Reviews"
+              />
+              <p class="dropdown-text">My Reviews</p>
+            </div>
+            <div class="dropdown-item">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/5dd4ef2221a26eb97c44021b855f72d1aa05086d707c891b3a9c34b08b015240?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="dropdown-icon"
+                alt="Logout"
+              />
+              <p class="dropdown-text">Logout</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="account-content">
+        <aside class="account-sidebar">
+          <nav class="breadcrumb">
+            <a href="#" class="breadcrumb-link">Home</a>
+            <span class="breadcrumb-current">My Account</span>
+          </nav>
+
+          <h2 class="sidebar-heading">Manage My Account</h2>
+          <ul class="sidebar-menu">
+            <li class="sidebar-item active">My Profile</li>
+            <li class="sidebar-item">Address Book</li>
+            <li class="sidebar-item">My Payment Options</li>
+          </ul>
+
+          <h2 class="sidebar-heading">My Orders</h2>
+          <ul class="sidebar-menu">
+            <li class="sidebar-item">My Returns</li>
+            <li class="sidebar-item">My Cancellations</li>
+          </ul>
+
+          <h2 class="sidebar-heading">My WishList</h2>
+        </aside>
+
+        <section class="profile-edit">
+          <h2 class="profile-heading">Edit Your Profile</h2>
+
+          <form class="profile-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <div class="input-container">
+                  <div class="input-wrapper">
+                    <input
+                      type="text"
+                      id="firstName"
+                      class="form-input"
+                      value="Outfit"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <div class="input-container">
+                  <div class="input-wrapper">
+                    <input
+                      type="text"
+                      id="lastName"
+                      class="form-input"
+                      value="Genie"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <div class="input-container">
+                  <div class="input-wrapper">
+                    <input
+                      type="email"
+                      id="email"
+                      class="form-input"
+                      value="outfitgenie@gmail.com"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="address">Address</label>
+                <div class="input-container">
+                  <div class="input-wrapper">
+                    <input
+                      type="text"
+                      id="address"
+                      class="form-input"
+                      value="Vapi, Gujarat."
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="password-section">
+              <div class="form-group full-width">
+                <label for="currentPassword">Password Changes</label>
+                <div class="input-container">
+                  <div class="input-wrapper">
+                    <input
+                      type="password"
+                      id="currentPassword"
+                      class="form-input"
+                      placeholder="Current Passwod"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-container">
+                <div class="input-wrapper">
+                  <input
+                    type="password"
+                    id="newPassword"
+                    class="form-input"
+                    placeholder="New Passwod"
+                  />
+                </div>
+              </div>
+
+              <div class="input-container">
+                <div class="input-wrapper">
+                  <input
+                    type="password"
+                    id="confirmPassword"
+                    class="form-input"
+                    placeholder="Confirm New Passwod"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn-cancel">Cancel</button>
+              <a href="C:\Users\LENOVO\Desktop\wt code\category dropdown\dropdownmenu.html"class="btn-save">Save Changes</a>
+              <!-- <button type="submit" class="btn-save">Save Changes</button> -->
+              <!-- </a> -->
+            </div>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      // TypeScript for Account Management Page (compiled to JavaScript)
+      document.addEventListener("DOMContentLoaded", () => {
+        // Form elements
+        const profileForm = document.querySelector(".profile-form");
+        const cancelButton = document.querySelector(".btn-cancel");
+        const saveButton = document.querySelector(".btn-save");
+
+        // Dropdown elements
+        const accountDropdown = document.querySelector(".account-dropdown");
+
+        // Sidebar menu items
+        const sidebarItems = document.querySelectorAll(".sidebar-item");
+
+        // Event Listeners
+        if (profileForm) {
+          profileForm.addEventListener("submit", handleFormSubmit);
+        }
+
+        if (cancelButton) {
+          cancelButton.addEventListener("click", handleCancel);
+        }
+
+        if (sidebarItems) {
+          sidebarItems.forEach((item) => {
+            item.addEventListener("click", () => handleSidebarItemClick(item));
+          });
+        }
+
+        // Toggle dropdown visibility (for demo purposes)
+        document.addEventListener("click", (event) => {
+          const target = event.target;
+
+          // Check if user clicked outside the dropdown
+          if (
+            accountDropdown &&
+            !accountDropdown.contains(target) &&
+            !target.classList.contains("action-icon")
+          ) {
+            // Hide dropdown in a real implementation
+            // accountDropdown.style.display = 'none';
+          }
+        });
+      });
+
+      // Form submission handler
+      function handleFormSubmit(event) {
+        event.preventDefault();
+
+        // Get form values
+        const firstName = document.getElementById("firstName").value;
+        const lastName = document.getElementById("lastName").value;
+        const email = document.getElementById("email").value;
+        const address = document.getElementById("address").value;
+        const currentPassword =
+          document.getElementById("currentPassword").value;
+        const newPassword = document.getElementById("newPassword").value;
+        const confirmPassword =
+          document.getElementById("confirmPassword").value;
+
+        // Validate form
+        if (!firstName || !lastName || !email || !address) {
+          alert("Please fill in all required fields");
+          return;
+        }
+
+        // Password validation
+        if (newPassword && newPassword !== confirmPassword) {
+          alert("New passwords do not match");
+          return;
+        }
+
+        // In a real application, you would send this data to a server
+        console.log("Form submitted with data:", {
+          firstName,
+          lastName,
+          email,
+          address,
+          passwordChanged: !!newPassword,
+        });
+
+        // Show success message
+        alert("Profile updated successfully!");
+      }
+
+      // Cancel button handler
+      function handleCancel() {
+        // Reset form or navigate away
+        if (
+          confirm(
+            "Are you sure you want to cancel? Any unsaved changes will be lost.",
+          )
+        ) {
+          window.location.reload();
+        }
+      }
+
+      // Sidebar item click handler
+      function handleSidebarItemClick(item) {
+        // Remove active class from all items
+        const sidebarItems = document.querySelectorAll(".sidebar-item");
+        sidebarItems.forEach((el) => el.classList.remove("active"));
+
+        // Add active class to clicked item
+        item.classList.add("active");
+
+        // In a real application, you would load the appropriate content
+        console.log("Navigating to:", item.textContent);
+      }
+
+      // Interface definitions (these are TypeScript interfaces, not included in compiled JS)
+      // interface UserProfile {
+      //   firstName: string;
+      //   lastName: string;
+      //   email: string;
+      //   address: string;
+      // }
+      //
+      // interface PasswordChange {
+      //   currentPassword: string;
+      //   newPassword: string;
+      //   confirmPassword: string;
+      // }
+    </script>
+  </body>
+</html>

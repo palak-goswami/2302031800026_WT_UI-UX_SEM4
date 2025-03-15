@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 Not Found - UrbanEcoMove</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          "Poppins",
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+      }
+
+      /* Error page container */
+      .error-page {
+        max-width: auto; 
+        height: auto; 
+        background-color: #fff;
+        display: flex;
+        padding-top: 88px;
+        padding-bottom: 88px;
+        flex-direction: column;
+        overflow: hidden;
+        align-items: stretch;
+      }
+
+      /* Header styles */
+      .site-header {
+        align-self: center;
+        display: flex;
+        align-items: center;
+        gap: 40px 130px;
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 991px) {
+        .site-header {
+          max-width: 100%;
+        }
+      }
+
+      .header-container {
+        align-self: stretch;
+        display: flex;
+        min-width: 240px;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-items: start;
+        gap: 40px 160px;
+        color: #000;
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 991px) {
+        .header-container {
+          max-width: 100%;
+        }
+      }
+
+      .logo {
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        white-space: nowrap;
+        letter-spacing: 0.72px;
+        line-height: 1;
+        width: 118px;
+        padding-right: -70px;
+      }
+
+      @media (max-width: 991px) {
+        .logo {
+          white-space: initial;
+        }
+      }
+
+      .main-nav {
+        display: flex;
+        min-width: 240px;
+        align-items: start;
+        gap: 40px 48px;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        text-align: center;
+        justify-content: start;
+      }
+
+      .nav-link {
+        color: #000;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      @media (max-width: 991px) {
+        .nav-link {
+          white-space: initial;
+        }
+      }
+
+      .header-actions {
+        align-self: stretch;
+        display: flex;
+        min-width: 240px;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-items: center;
+        gap: 24px;
+        justify-content: start;
+      }
+
+      .search-bar {
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        background-color: #f5f5f5;
+        align-self: stretch;
+        display: flex;
+        min-width: 240px;
+        margin-top: auto;
+        margin-bottom: auto;
+        padding: 7px 12px 7px 20px;
+        flex-direction: column;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 12px;
+        color: #000;
+        font-weight: 400;
+      }
+
+      .search-input-container {
+        display: flex;
+        align-items: center;
+        gap: 34px;
+        justify-content: center;
+      }
+
+      .search-placeholder {
+        opacity: 0.5;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      .search-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 24px;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+        flex-shrink: 0;
+      }
+
+      .user-actions {
+        align-self: stretch;
+        display: flex;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-items: center;
+        gap: 16px;
+        justify-content: center;
+      }
+
+      .action-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 32px;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+        flex-shrink: 0;
+      }
+
+      .divider {
+        opacity: 0.3;
+        border: none;
+        border-top: 1px solid rgba(0, 0, 0, 1);
+        background-color: #000;
+        min-height: 1px;
+        margin-top: 16px;
+        width: 100%;
+      }
+
+      @media (max-width: 991px) {
+        .divider {
+          max-width: 100%;
+        }
+      }
+
+      /* Main content styles */
+      .error-content {
+        display: flex;
+        margin-top: 79px;
+        margin-left: 135px;
+        width: 100%;
+        max-width: 1000px;
+        flex-direction: column;
+      }
+
+      @media (max-width: 991px) {
+        .error-content {
+          max-width: 100%;
+          margin-top: 40px;
+        }
+      }
+
+      .breadcrumb {
+        align-self: start;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 14px;
+        color: #000;
+        font-weight: 400;
+        justify-content: start;
+      }
+
+      .breadcrumb-link {
+        opacity: 0.5;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+        color: #000;
+        text-decoration: none;
+      }
+
+      .breadcrumb-current {
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      .error-message {
+        align-self: end;
+        display: flex;
+        margin-top: 140px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+      }
+
+      @media (max-width: 991px) {
+        .error-message {
+          max-width: 100%;
+          margin-top: 40px;
+        }
+      }
+
+      .error-title {
+        color: #000;
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 110px;
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: 3.3px;
+      }
+
+      @media (max-width: 991px) {
+        .error-title {
+          max-width: 100%;
+          font-size: 40px;
+        }
+      }
+
+      .error-description {
+        color: #000;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 40px;
+      }
+
+      @media (max-width: 991px) {
+        .error-description {
+          max-width: 100%;
+        }
+      }
+
+      .home-button {
+        align-self: center;
+        border-radius: 4px;
+        background-color: #db4444;
+        margin-top: 80px;
+        margin-left: 64px;
+        padding: 16px 48px;
+        gap: 10px;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        color: #fafafa;
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+      }
+
+      @media (max-width: 991px) {
+        .home-button {
+          padding: 16px 20px;
+          margin-top: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="error-page">
+      <header class="site-header">
+        <div class="header-container">
+          <h1 class="logo">UrbanEcoMove</h1>
+          <nav class="main-nav">
+            <a href="C:\Users\LENOVO\Desktop\wt code\category dropdown\dropdownmenu.html">Home</a>
+            <a href="C:\Users\LENOVO\Desktop\wt code\404 error\errormerge.html">Contact</a>
+            <a href="C:\Users\LENOVO\Desktop\wt code\about\abmerge.html">About</a>
+            <a href="C:\Users\LENOVO\Desktop\wt code\sign in\merge.html"class="nav-link">Sign Up</a>
+          </nav>
+        </div>
+        <div class="header-actions">
+          <div class="search-bar">
+            <div class="search-input-container">
+              <p class="search-placeholder">What are you looking for?</p>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/7a36546edd30f9649053810fdbf6c98d92541e863e7b8b10ab13af855343b34e?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="search-icon"
+                alt="Search"
+              />
+            </div>
+          </div>
+          <div class="user-actions"> 
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/850597cc14d3bfef027aa097fc5bca3ac1b650d683dc1d3c8c0134d5cd9a061d?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="action-icon"
+              alt="User account"
+            />
+            <a href="C:\Users\LENOVO\Desktop\wt code\check out\checkoutmerge.html">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/b8271502a2876bb3b6063268c10c6816f284c0b61e357253322dae4e6eac2662?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="action-icon"
+              alt="Favorites"
+            />
+            </a>
+            <a href="C:\Users\LENOVO\Desktop\wt code\account\accmerge.html">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/505a01368e57ac667ecd551fd161eb3fa8202cee72841e5b11d9f712055e4607?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="action-icon"
+              alt="Cart"
+            />
+            </a>
+          </div>
+        </div>
+      </header>
+      <hr class="divider" />
+      <main class="error-content">
+        <nav class="breadcrumb">
+          <a href="C:\Users\LENOVO\Desktop\wt code\category dropdown\dropdownmenu.html" class="breadcrumb-link">Home</a>
+          <span class="breadcrumb-current">404 Error</span>
+        </nav>
+        <section class="error-message">
+          <h2 class="error-title">404 Not Found</h2>
+          <p class="error-description">
+            Your visited page not found. You may go home page.
+          </p>
+        </section>
+        <a href="C:\Users\LENOVO\Desktop\wt code\category dropdown\dropdownmenu.html">
+        <button class="home-button" id="backToHomeButton">
+          Back to home page
+        </button>
+        </a>
+      </main>
+    </div>
+
+    <script>
+      /**
+       * JavaScript for 404 Error Page
+       */
+
+      // Wait for DOM to be fully loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get the back to home button
+        var backToHomeButton = document.getElementById("backToHomeButton");
+
+        // Add click event listener to navigate back to home page
+        if (backToHomeButton) {
+          backToHomeButton.addEventListener("click", function () {
+            // Navigate to home page
+            window.location.href = "/";
+          });
+        }
+
+        // Get all navigation links
+        var navLinks = document.querySelectorAll(".nav-link");
+
+        // Add click event listeners to navigation links
+        navLinks.forEach(function (link) {
+          link.addEventListener("click", function (event) {
+            // For demo purposes, prevent default navigation
+            event.preventDefault();
+
+            // Get the link text
+            var linkText = link.innerText.toLowerCase();
+
+            // Navigate based on link text
+            if (linkText === "home") {
+              window.location.href = "/";
+            } else {
+              window.location.href = "/" + linkText.replace(" ", "-");
+            }
+          });
+        });
+
+        // Get the breadcrumb home link
+        var breadcrumbHomeLink = document.querySelector(".breadcrumb-link");
+
+        // Add click event listener to breadcrumb home link
+        if (breadcrumbHomeLink) {
+          breadcrumbHomeLink.addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = "/";
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

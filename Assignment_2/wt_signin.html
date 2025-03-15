@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset and base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          "Poppins",
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        background-color: #1a1a1a;
+        color: rgba(255, 255, 255, 1);
+        min-height: 100vh;
+      }
+
+      /* Main container */
+      .signup-container {
+        max-width: auto; 
+        height: auto;
+        background-color: #1a1a1a;
+        padding-right: 80px;
+        overflow: hidden;
+      }
+
+      /* Layout */
+      .signup-layout {
+        display: flex;
+        gap: 20px;
+      }
+
+      /* Image column */
+      .image-column {
+        display: flex;
+        flex-direction: column;
+        width: 65%;
+      }
+
+      .hero-image {
+        aspect-ratio: 0.8;
+        object-fit: contain;
+        object-position: center;
+        width: 100%;
+        flex-grow: 1;
+      }
+
+      /* Form column */
+      .form-column {
+        display: flex;
+        flex-direction: column;
+        width: 35%;
+        margin-left: 20px;
+      }
+
+      .form-wrapper {
+        display: flex;
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 100%;
+        flex-direction: column;
+        align-self: stretch;
+      }
+
+      /* Glass effect container */
+      .form-glass-container {
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.33);
+        box-shadow: 0px 4px 12px 11px rgba(0, 0, 0, 0.1);
+        border-color: rgba(255, 255, 255, 0.53);
+        display: flex;
+        width: 100%;
+        padding: 29px 39px;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 10px;
+        font-weight: 400;
+      }
+
+      /* Form elements */
+      .signup-heading {
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      .input-label {
+        font-weight: 600;
+        font-size: 10px;
+        margin-top: 21px;
+      }
+
+      .input-label:first-of-type {
+        margin-top: 67px;
+      }
+
+      .input-field {
+        border-radius: 8.229px;
+        border: 0.411px solid rgba(255, 255, 255, 0.41);
+        backdrop-filter: blur(35px);
+        background-color: #fffffb;
+        align-self: stretch;
+        margin-top: 9px;
+        padding: 14px 19px;
+        font-size: 12px;
+        color: #1a1a1a;
+        width: 100%;
+        font-family:
+          "Poppins",
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+      }
+
+      /* Terms and conditions */
+      .terms-container {
+        display: flex;
+        margin-top: 21px;
+        align-items: stretch;
+      }
+
+      .checkbox-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .terms-checkbox {
+        appearance: none;
+        -webkit-appearance: none;
+        border-radius: 2.8px;
+        border: 1.05px solid #fffffb;
+        width: 15px;
+        height: 15px;
+        flex-shrink: 0;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .terms-checkbox:checked::after {
+        content: "✓";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fffffb;
+        font-size: 10px;
+      }
+
+      .terms-label {
+        font-size: 10px;
+      }
+
+      /* Submit button */
+      .submit-button {
+        border-radius: 8.229px;
+        border: 0.411px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(5.92px);
+        background-color: #fffffb;
+        align-self: center;
+        margin-top: 22px;
+        width: 141px;
+        padding: 10px 44px;
+        font-size: 15px;
+        color: #1a1a1a;
+        text-align: center;
+        cursor: pointer;
+        font-family:
+          "Poppins",
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-weight: 600;
+      }
+
+      .submit-button:hover {
+        background-color: #f5f5f1;
+      }
+
+      /* Login prompt */
+      .login-prompt {
+        align-self: center;
+        display: flex;
+        margin-top: 79px;
+        width: 269px;
+        max-width: 100%;
+        align-items: center;
+        gap: 10px;
+        font-size: 16px;
+      }
+
+      .login-text {
+        font-weight: 400;
+        flex-grow: 1;
+      }
+
+      .login-link {
+        font-weight: 600;
+        color: rgba(255, 255, 255, 1);
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .login-link:hover {
+        text-decoration: underline;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 991px) {
+        .signup-container {
+          padding-right: 20px;
+        }
+
+        .signup-layout {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0;
+        }
+
+        .image-column {
+          width: 100%;
+        }
+
+        .hero-image {
+          max-width: 100%;
+          margin-top: 40px;
+        }
+
+        .form-column {
+          width: 100%;
+          margin-left: 0;
+        }
+
+        .form-wrapper {
+          margin-top: 40px;
+        }
+
+        .form-glass-container {
+          padding: 29px 20px;
+        }
+
+        .input-label:first-of-type {
+          margin-top: 40px;
+        }
+
+        .submit-button {
+          padding: 10px 20px;
+        }
+
+        .login-prompt {
+          margin-top: 40px;
+        }
+
+        .terms-container {
+          margin-left: 3px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="signup-container">
+      <div class="signup-layout">
+        <section class="image-column">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/14b242b4a2f88a9fefc4293d599527b3502dc58472b45e50a6b9ef7384f84a9f?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+            alt="Sign up illustration"
+            class="hero-image"
+          />
+        </section>
+        <section class="form-column">
+          <div class="form-wrapper">
+            <div class="form-glass-container">
+              <h1 class="signup-heading">Sign Up</h1>
+
+              <label for="fullName" class="input-label">Full Name</label>
+              <input
+                type="text"
+                id="fullName"
+                class="input-field"
+                value="Palak Goswami"
+              />
+
+              <label for="phoneNumber" class="input-label">Phone number</label>
+              <input
+                type="tel"
+                id="phoneNumber"
+                class="input-field"
+                value="1234567890"
+              />
+
+              <label for="email" class="input-label">Email</label>
+              <input
+                type="email"
+                id="email"
+                class="input-field"
+                value="palak@gmail.com"
+              />
+
+              <label for="password" class="input-label">Password</label>
+              <input
+                type="password"
+                id="password"
+                class="input-field"
+                value="*********"
+              />
+
+              <div class="terms-container">
+                <div class="checkbox-wrapper">
+                  <input
+                    type="checkbox"
+                    id="termsCheckbox"
+                    class="terms-checkbox"
+                  />
+                  <label for="termsCheckbox" class="terms-label"
+                    >Accept Terms and Conditions</label
+                  >
+                </div>
+              </div>
+              <div>
+                <a href="C:\Users\LENOVO\Desktop\wt code\category dropdown\dropdownmenu.html">
+                  <button type="button" class="submit-button">SUBMIT</button>
+              </a>
+              
+              </div>
+              <div class="login-prompt">
+              <p class="login-text">Already have an account?</p>
+              <a href="C:\Users\LENOVO\Desktop\wt code\log in\loginfullmerge.html" >Log In</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      // Class to handle the signup form functionality
+      var SignupForm = /** @class */ (function () {
+        function SignupForm() {
+          // Initialize form elements
+          this.elements = {
+            fullName: document.getElementById("fullName"),
+            phoneNumber: document.getElementById("phoneNumber"),
+            email: document.getElementById("email"),
+            password: document.getElementById("password"),
+            termsCheckbox: document.getElementById("termsCheckbox"),
+            submitButton: document.querySelector("submit-button"),
+            loginLink: document.querySelector(".login-link"),
+          };
+          this.initEventListeners();
+        }
+        SignupForm.prototype.initEventListeners = function () {
+          var _this = this;
+          // Add submit event listener
+          this.elements.submitButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            _this.handleSubmit();
+          });
+          // Add login link event listener
+          this.elements.loginLink.addEventListener("click", function (e) {
+            e.preventDefault();
+            _this.navigateToLogin();
+          });
+        };
+        SignupForm.prototype.validateFullName = function () {
+          var value = this.elements.fullName.value.trim();
+          if (!value) {
+            return { isValid: false, message: "Full name is required" };
+          }
+          if (value.length < 2) {
+            return {
+              isValid: false,
+              message: "Full name must be at least 2 characters",
+            };
+          }
+          return { isValid: true };
+        };
+        SignupForm.prototype.validatePhoneNumber = function () {
+          var value = this.elements.phoneNumber.value.trim();
+          if (!value) {
+            return { isValid: false, message: "Phone number is required" };
+          }
+          // Simple phone validation - can be enhanced based on requirements
+          var phoneRegex = /^\d{10,15}$/;
+          if (!phoneRegex.test(value)) {
+            return {
+              isValid: false,
+              message: "Please enter a valid phone number (10-15 digits)",
+            };
+          }
+          return { isValid: true };
+        };
+        SignupForm.prototype.validateEmail = function () {
+          var value = this.elements.email.value.trim();
+          if (!value) {
+            return { isValid: false, message: "Email is required" };
+          }
+          // Basic email validation
+          var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(value)) {
+            return {
+              isValid: false,
+              message: "Please enter a valid email address",
+            };
+          }
+          return { isValid: true };
+        };
+        SignupForm.prototype.validatePassword = function () {
+          var value = this.elements.password.value;
+          if (!value) {
+            return { isValid: false, message: "Password is required" };
+          }
+          if (value.length < 8) {
+            return {
+              isValid: false,
+              message: "Password must be at least 8 characters",
+            };
+          }
+          return { isValid: true };
+        };
+        SignupForm.prototype.validateTerms = function () {
+          if (!this.elements.termsCheckbox.checked) {
+            return {
+              isValid: false,
+              message: "You must accept the terms and conditions",
+            };
+          }
+          return { isValid: true };
+        };
+        SignupForm.prototype.showError = function (element, message) {
+          var _a;
+          // Remove any existing error message
+          this.removeError(element);
+          // Create error message element
+          var errorElement = document.createElement("div");
+          errorElement.className = "error-message";
+          errorElement.textContent = message;
+          errorElement.style.color = "#ff6b6b";
+          errorElement.style.fontSize = "10px";
+          errorElement.style.marginTop = "4px";
+          // Insert error message after the input
+          (_a = element.parentNode) === null || _a === void 0
+            ? void 0
+            : _a.insertBefore(errorElement, element.nextSibling);
+          // Add error styling to input
+          element.style.borderColor = "#ff6b6b";
+        };
+        SignupForm.prototype.removeError = function (element) {
+          // Remove error styling
+          element.style.borderColor = "rgba(255, 255, 255, 0.41)";
+          // Remove error message if exists
+          var nextSibling = element.nextSibling;
+          if (nextSibling && nextSibling.nodeType === 1) {
+            var errorElement = nextSibling;
+            if (errorElement.className === "error-message") {
+              errorElement.remove();
+            }
+          }
+        };
+        SignupForm.prototype.handleSubmit = function () {
+          // Remove all existing errors
+          this.removeAllErrors();
+          // Validate all fields
+          var nameValidation = this.validateFullName();
+          var phoneValidation = this.validatePhoneNumber();
+          var emailValidation = this.validateEmail();
+          var passwordValidation = this.validatePassword();
+          var termsValidation = this.validateTerms();
+          // Show errors if any
+          var isFormValid = true;
+          if (!nameValidation.isValid) {
+            this.showError(this.elements.fullName, nameValidation.message);
+            isFormValid = false;
+          }
+          if (!phoneValidation.isValid) {
+            this.showError(this.elements.phoneNumber, phoneValidation.message);
+            isFormValid = false;
+          }
+          if (!emailValidation.isValid) {
+            this.showError(this.elements.email, emailValidation.message);
+            isFormValid = false;
+          }
+          if (!passwordValidation.isValid) {
+            this.showError(this.elements.password, passwordValidation.message);
+            isFormValid = false;
+          }
+          if (!termsValidation.isValid) {
+            // For checkbox, we'll show the error differently
+            var termsContainer = document.querySelector(".terms-container");
+            var errorElement = document.createElement("div");
+            errorElement.className = "error-message";
+            errorElement.textContent = termsValidation.message;
+            errorElement.style.color = "#ff6b6b";
+            errorElement.style.fontSize = "10px";
+            errorElement.style.marginTop = "4px";
+            termsContainer.appendChild(errorElement);
+            isFormValid = false;
+          }
+          // If form is valid, submit it
+          if (isFormValid) {
+            this.submitForm();
+          }
+        };
+        SignupForm.prototype.removeAllErrors = function () {
+          // Remove all error messages
+          var errorMessages = document.querySelectorAll(".error-message");
+          errorMessages.forEach(function (element) {
+            return element.remove();
+          });
+          // Reset input styles
+          this.removeError(this.elements.fullName);
+          this.removeError(this.elements.phoneNumber);
+          this.removeError(this.elements.email);
+          this.removeError(this.elements.password);
+        };
+        SignupForm.prototype.submitForm = function () {
+          // Get form data
+          var formData = {
+            fullName: this.elements.fullName.value.trim(),
+            phoneNumber: this.elements.phoneNumber.value.trim(),
+            email: this.elements.email.value.trim(),
+            password: this.elements.password.value,
+            termsAccepted: this.elements.termsCheckbox.checked,
+          };
+          // In a real application, you would send this data to a server
+          console.log("Form submitted with data:", formData);
+          // Show success message
+          alert("Sign up successful!");
+          // Reset form (optional)
+          // this.resetForm();
+        };
+        SignupForm.prototype.resetForm = function () {
+          this.elements.fullName.value = "";
+          this.elements.phoneNumber.value = "";
+          this.elements.email.value = "";
+          this.elements.password.value = "";
+          this.elements.termsCheckbox.checked = false;
+        };
+        SignupForm.prototype.navigateToLogin = function () {
+          // In a real application, this would navigate to the login page
+          console.log("Navigating to login page");
+          alert("Navigating to login page");
+        };
+        return SignupForm;
+      })();
+      // Initialize the form when the DOM is loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        new SignupForm();
+      });
+    </script>
+  </body>
+</html>

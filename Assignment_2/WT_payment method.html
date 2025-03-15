@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Splash Screen</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          "Poppins",
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+      }
+
+      /* Splash screen container */
+      .splash-screen {
+        max-width: auto; 
+        height: auto;
+        background-color: rgba(242, 241, 223, 1);
+        display: flex;
+        max-width: 895px;
+        padding-top: 18px;
+        padding-bottom: 310px;
+        flex-direction: column;
+        overflow: hidden;
+        align-items: stretch;
+        margin: 0 auto;
+        min-height: 100vh;
+      }
+
+      /* Status bar at the top */
+      .status-bar {
+        display: flex;
+        margin-left: 33px;
+        width: 312px;
+        max-width: 100%;
+        align-items: flex-start;
+        gap: 20px;
+        justify-content: space-between;
+      }
+
+      .status-icon {
+        aspect-ratio: 2.42;
+        object-fit: contain;
+        object-position: center;
+        width: 29px;
+        flex-shrink: 0;
+      }
+
+      .status-indicators {
+        display: flex;
+        align-items: stretch;
+        gap: 5px;
+      }
+
+      .signal-indicator {
+        aspect-ratio: 1.5;
+        object-fit: contain;
+        object-position: center;
+        width: 18px;
+        flex-shrink: 0;
+      }
+
+      .wifi-indicator {
+        aspect-ratio: 1.33;
+        object-fit: contain;
+        object-position: center;
+        width: 16px;
+        flex-shrink: 0;
+      }
+
+      .battery-status {
+        display: flex;
+        align-items: stretch;
+        gap: 1px;
+      }
+
+      .battery-level {
+        aspect-ratio: 1.92;
+        object-fit: contain;
+        object-position: center;
+        width: 23px;
+        flex-shrink: 0;
+      }
+
+      .battery-separator {
+        aspect-ratio: 0.25;
+        object-fit: contain;
+        object-position: center;
+        width: 1px;
+        margin-top: auto;
+        margin-bottom: auto;
+        flex-shrink: 0;
+      }
+
+      /* Main illustration */
+      .main-illustration {
+        aspect-ratio: 1.39;
+        object-fit: contain;
+        object-position: center;
+        width: 100%;
+        margin-top: 96px;
+      }
+
+      /* Action buttons container */
+      .action-buttons {
+        align-self: flex-end;
+        display: flex;
+        margin-top: 122px;
+        margin-right: 115px;
+        align-items: stretch;
+        gap: 40px 46px;
+        font-size: 14px;
+        font-weight: 800;
+        white-space: nowrap;
+        text-align: center;
+      }
+
+      /* Common button styles */
+      .action-button {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+        padding: 7px 40px 16px;
+        font-family:
+          "Poppins",
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 14px;
+        font-weight: 800;
+        cursor: pointer;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .action-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 7px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .action-button:active {
+        transform: translateY(1px);
+        box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Skip button specific styles */
+      .skip-button {
+        background-color: rgba(255, 250, 156, 1);
+        color: rgba(55, 55, 55, 1);
+      }
+
+      /* Next button specific styles */
+      .next-button {
+        background-blend-mode: hard_light;
+        background-color: rgba(20, 41, 104, 1);
+        color: rgba(246, 246, 246, 1);
+        padding-left: 38px;
+        padding-right: 38px;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 991px) {
+        .splash-screen {
+          padding-bottom: 100px;
+        }
+
+        .status-bar {
+          margin-left: 10px;
+        }
+
+        .main-illustration {
+          max-width: 100%;
+          margin-top: 40px;
+        }
+
+        .action-buttons {
+          margin-right: 10px;
+          margin-top: 40px;
+          white-space: initial;
+        }
+
+        .action-button {
+          padding-left: 20px;
+          padding-right: 20px;
+          white-space: initial;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="splash-screen">
+      <header class="status-bar">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/e1c45224cd571daa285fcf33ea30ef26669cec87d129d15a36cc79c94ff06bb0?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+          alt="Status icon"
+          class="status-icon"
+        />
+        <div class="status-indicators">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/c1f0badce63a68e5953d4c70d067eb5b113e6b9773edd84d8bb444882e5c2af9?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+            alt="Signal indicator"
+            class="signal-indicator"
+          />
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/bca4303a8d0c75c84800602be1ffef10a7bab79be4557dc7bebad9b5328155ea?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+            alt="WiFi indicator"
+            class="wifi-indicator"
+          />
+          <div class="battery-status">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/ee961fa9adad6e5cd857414b7cb93218b45c1d874503181f1423457763e8d195?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              alt="Battery level"
+              class="battery-level"
+            />
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/932f92fda1b7b8aabd0c87f54bb18574b4aa99be25807d1ebbae64227229c6d4?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              alt="Battery separator"
+              class="battery-separator"
+            />
+          </div>
+        </div>
+      </header>
+
+      <img
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/dd160facce69abfc6d258b17b359105126e891bc60a929b8b1190437eb290af8?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+        alt="Splash screen illustration"
+        class="main-illustration"
+      />
+
+      <section class="action-buttons">
+        <a href="C:\Users\LENOVO\Desktop\wt code\check out\checkoutmerge.html"class="action-button">Skip</a>
+        <a href="C:\Users\LENOVO\Desktop\wt code\charging and cost\costmerge.html"class="action-button">Next</a>
+        <!-- <button class="action-button skip-button">Skip</button> -->
+        <!-- <button class="action-button next-button">Next</button> -->
+      </section>
+    </main>
+
+    <script>
+      /**
+       * JavaScript for Splash Screen functionality
+       */
+      var SplashScreen = /** @class */ (function () {
+        function SplashScreen(config) {
+          this.config = config;
+          this.skipButton = document.querySelector(".skip-button");
+          this.nextButton = document.querySelector(".next-button");
+          this.initialize();
+        }
+        SplashScreen.prototype.initialize = function () {
+          // Add event listeners to buttons
+          if (this.skipButton) {
+            this.skipButton.addEventListener(
+              "click",
+              this.handleSkip.bind(this),
+            );
+          }
+          if (this.nextButton) {
+            this.nextButton.addEventListener(
+              "click",
+              this.handleNext.bind(this),
+            );
+          }
+          // Update button text if it's the last screen
+          if (this.config.currentScreen === this.config.totalScreens) {
+            if (this.nextButton) {
+              this.nextButton.textContent = "Get Started";
+            }
+            if (this.skipButton) {
+              this.skipButton.style.display = "none";
+            }
+          }
+        };
+        SplashScreen.prototype.handleSkip = function (event) {
+          event.preventDefault();
+          this.config.onSkip();
+        };
+        SplashScreen.prototype.handleNext = function (event) {
+          event.preventDefault();
+          this.config.onNext();
+        };
+        return SplashScreen;
+      })();
+
+      // Example usage (to be customized by the implementer)
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize with default configuration
+        // These functions should be replaced with actual navigation logic
+        var splashScreen = new SplashScreen({
+          onSkip: function () {
+            console.log("Skip clicked - navigate to main app");
+            // Example: window.location.href = '/main-app';
+          },
+          onNext: function () {
+            console.log("Next clicked - navigate to next splash screen");
+            // Example: window.location.href = '/splash-screen-3';
+          },
+          totalScreens: 3,
+          currentScreen: 2, // This is splash screen 2
+        });
+      });
+    </script>
+  </body>
+</html>

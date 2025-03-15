@@ -1,0 +1,1215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - UrbanEcoMove</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          "Poppins",
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+      }
+
+      .about {
+        max-width: auto; 
+        height: auto; 
+        background-color: #fff;
+        display: flex;
+        padding-bottom: 123px;
+        flex-direction: column;
+        overflow: hidden;
+        align-items: stretch;
+      }
+
+      @media (max-width: 991px) {
+        .about {
+          padding-bottom: 100px;
+        }
+      }
+
+      /* Top Header */
+      .top-header {
+        justify-content: center;
+        align-items: end;
+        background-color: #000;
+        display: flex;
+        width: 100%;
+        padding: 12px 70px;
+        flex-direction: column;
+        overflow: hidden;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 14px;
+        color: #fafafa;
+        font-weight: 400;
+      }
+
+      @media (max-width: 991px) {
+        .top-header {
+          max-width: 100%;
+          padding: 12px 20px;
+        }
+      }
+
+      .promo-container {
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 991px) {
+        .promo-container {
+          max-width: 100%;
+        }
+      }
+
+      .promo-text {
+        align-self: stretch;
+        width: 474px;
+        min-width: 240px;
+        gap: 8px;
+      }
+
+      @media (max-width: 991px) {
+        .promo-text {
+          max-width: 100%;
+        }
+      }
+
+      .language-selector {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        white-space: nowrap;
+        justify-content: center;
+      }
+
+      @media (max-width: 991px) {
+        .language-selector {
+          white-space: initial;
+        }
+      }
+
+      .language {
+        align-self: stretch;
+        margin: auto 0;
+      }
+
+      .dropdown-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 24px;
+        align-self: stretch;
+        margin: auto 0;
+        flex-shrink: 0;
+      }
+
+      /* Main Header */
+      .main-header {
+        align-self: center;
+        display: flex;
+        margin-top: 40px;
+        align-items: center;
+        gap: 40px 130px;
+        justify-content: start;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0 70px;
+      }
+
+      @media (max-width: 991px) {
+        .main-header {
+          max-width: 100%;
+          padding: 0 20px;
+        }
+      }
+
+      .nav-container {
+        align-self: stretch;
+        display: flex;
+        min-width: 240px;
+        margin: auto 0;
+        align-items: start;
+        gap: 40px 160px;
+        color: #000;
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 991px) {
+        .nav-container {
+          max-width: 100%;
+        }
+      }
+
+      .logo {
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        white-space: nowrap;
+        letter-spacing: 0.72px;
+        line-height: 1;
+        width: 118px;
+        padding-right: -70px;
+      }
+
+      @media (max-width: 991px) {
+        .logo {
+          white-space: initial;
+        }
+      }
+
+      .nav-links {
+        display: flex;
+        min-width: 240px;
+        align-items: start;
+        gap: 40px 48px;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        text-align: center;
+        justify-content: start;
+        list-style: none;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: #000;
+        white-space: nowrap;
+      }
+
+      .active-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        white-space: nowrap;
+        justify-content: start;
+        width: 48px;
+      }
+
+      @media (max-width: 991px) {
+        .active-nav-item {
+          white-space: initial;
+        }
+      }
+
+      .active-indicator {
+        aspect-ratio: 47.62;
+        object-fit: contain;
+        object-position: center;
+        width: 48px;
+      }
+
+      .header-actions {
+        align-self: stretch;
+        display: flex;
+        min-width: 240px;
+        margin: auto 0;
+        align-items: center;
+        gap: 24px;
+        justify-content: start;
+      }
+
+      .search-component {
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        background-color: #f5f5f5;
+        align-self: stretch;
+        display: flex;
+        min-width: 240px;
+        margin: auto 0;
+        padding: 7px 12px 7px 20px;
+        flex-direction: column;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 12px;
+        color: #000;
+        font-weight: 400;
+      }
+
+      .search-input {
+        display: flex;
+        align-items: center;
+        gap: 34px;
+        justify-content: center;
+      }
+
+      .search-placeholder {
+        opacity: 0.5;
+        align-self: stretch;
+        margin: auto 0;
+      }
+
+      .search-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 24px;
+        align-self: stretch;
+        margin: auto 0;
+        flex-shrink: 0;
+      }
+
+      .action-icons {
+        align-self: stretch;
+        display: flex;
+        margin: auto 0;
+        align-items: center;
+        gap: 16px;
+        justify-content: center;
+      }
+
+      .action-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 32px;
+        align-self: stretch;
+        margin: auto 0;
+        flex-shrink: 0;
+      }
+
+      /* Divider */
+      .divider {
+        opacity: 0.3;
+        border-color: rgba(0, 0, 0, 1);
+        border-style: solid;
+        border-width: 1px;
+        background-color: #000;
+        min-height: 1px;
+        margin-top: 16px;
+        width: 100%;
+      }
+
+      @media (max-width: 991px) {
+        .divider {
+          max-width: 100%;
+        }
+      }
+
+      /* Content Container */
+      .content-container {
+        align-self: center;
+        display: flex;
+        margin-top: 79px;
+        width: 100%;
+        max-width: 1170px;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 70px;
+      }
+
+      @media (max-width: 991px) {
+        .content-container {
+          max-width: 100%;
+          margin-top: 40px;
+          padding: 0 20px;
+        }
+      }
+
+      /* Breadcrumb */
+      .breadcrumb {
+        align-self: start;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 14px;
+        color: #000;
+        font-weight: 400;
+        white-space: nowrap;
+        justify-content: start;
+      }
+
+      @media (max-width: 991px) {
+        .breadcrumb {
+          white-space: initial;
+        }
+      }
+
+      .breadcrumb-item {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .breadcrumb-item.current {
+        opacity: 1;
+      }
+
+      a.breadcrumb-item {
+        opacity: 0.5;
+      }
+
+      /* Story Section */
+      .story-section {
+        margin-top: 53px;
+        width: 525px;
+        max-width: 100%;
+      }
+
+      @media (max-width: 991px) {
+        .story-section {
+          margin-top: 40px;
+        }
+      }
+
+      .story-title {
+        color: #000;
+        text-align: justify;
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 54px;
+        font-weight: 600;
+        line-height: 1;
+        letter-spacing: 3.24px;
+      }
+
+      @media (max-width: 991px) {
+        .story-title {
+          font-size: 40px;
+        }
+      }
+
+      .story-text {
+        margin-top: 40px;
+        width: 100%;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        color: #000;
+        font-weight: 400;
+        line-height: 26px;
+      }
+
+      @media (max-width: 991px) {
+        .story-text {
+          max-width: 100%;
+        }
+      }
+
+      /* Stats Section */
+      .stats-section {
+        display: flex;
+        margin-top: 56px;
+        align-items: start;
+        gap: 30px;
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 991px) {
+        .stats-section {
+          max-width: 100%;
+          margin-top: 40px;
+        }
+      }
+
+      .stat-card {
+        border-radius: 4px;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        display: flex;
+        min-width: 240px;
+        padding: 30px 50px;
+        flex-direction: column;
+        overflow: hidden;
+        align-items: stretch;
+        justify-content: center;
+        width: 270px;
+      }
+
+      @media (max-width: 991px) {
+        .stat-card {
+          padding: 30px 20px;
+        }
+      }
+
+      .stat-icon-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+      }
+
+      .stat-icon-outer {
+        background-color: rgba(47, 46, 48, 0.3);
+        border-radius: 50%;
+        display: flex;
+        padding: 0 8px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 80px;
+      }
+
+      .stat-icon-inner {
+        background-color: #000;
+        border-radius: 50%;
+        display: flex;
+        width: 58px;
+        flex-shrink: 0;
+        height: 58px;
+      }
+
+      .stat-content {
+        display: flex;
+        margin-top: 24px;
+        flex-direction: column;
+        align-items: center;
+        color: #000;
+        justify-content: start;
+      }
+
+      .stat-number {
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: 1.28px;
+      }
+
+      .stat-description {
+        text-align: center;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 12px;
+      }
+
+      .highlight-card {
+        align-items: start;
+        border-radius: 4px;
+        box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.2);
+        background-color: #db4444;
+        display: flex;
+        min-width: 240px;
+        padding: 32px 35px 64px;
+        flex-direction: column;
+        overflow: hidden;
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 32px;
+        color: #fff;
+        font-weight: 700;
+        white-space: nowrap;
+        letter-spacing: 1.28px;
+        line-height: 1;
+        border: none;
+      }
+
+      @media (max-width: 991px) {
+        .highlight-card {
+          padding: 32px 20px 64px;
+          white-space: initial;
+        }
+      }
+
+      .stat-icon-wrapper {
+        display: flex;
+        width: 80px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+      }
+
+      @media (max-width: 991px) {
+        .stat-icon-wrapper {
+          white-space: initial;
+        }
+      }
+
+      .stat-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 80px;
+      }
+
+      .stat-content-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+      }
+
+      .stat-text {
+        display: flex;
+        margin-top: 24px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+      }
+
+      /* Team Section */
+      .team-section {
+        display: flex;
+        margin-top: 140px;
+        align-items: start;
+        gap: 30px;
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 991px) {
+        .team-section {
+          margin-top: 40px;
+        }
+      }
+
+      .team-member {
+        display: flex;
+        min-width: 240px;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: start;
+        width: 370px;
+      }
+
+      .member-image-container {
+        border-radius: 4px;
+        background-color: #f5f5f5;
+        max-width: 100%;
+        width: 370px;
+        padding: 39px 37px 0;
+        overflow: hidden;
+      }
+
+      @media (max-width: 991px) {
+        .member-image-container {
+          padding: 39px 20px 0;
+        }
+      }
+
+      .member-image {
+        aspect-ratio: 0.6;
+        object-fit: contain;
+        object-position: center;
+        width: 100%;
+      }
+
+      .member-details {
+        align-self: start;
+        display: flex;
+        margin-top: 32px;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: start;
+      }
+
+      .member-info {
+        color: #000;
+      }
+
+      .member-name {
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: 1.28px;
+      }
+
+      .member-position {
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 8px;
+      }
+
+      .social-links {
+        align-self: start;
+        display: flex;
+        margin-top: 16px;
+        align-items: start;
+        gap: 16px;
+        justify-content: start;
+      }
+
+      .social-link {
+        display: flex;
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+      }
+
+      .twitter-icon,
+      .instagram-icon {
+        background-color: transparent;
+      }
+
+      .social-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 24px;
+        flex-shrink: 0;
+      }
+
+      /* Pagination */
+      .pagination {
+        align-self: center;
+        display: flex;
+        margin-top: 40px;
+        align-items: center;
+        gap: 12px;
+        justify-content: start;
+      }
+
+      .page-dot {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        align-self: stretch;
+        display: flex;
+        margin: auto 0;
+        width: 12px;
+        flex-shrink: 0;
+        height: 12px;
+      }
+
+      .active-dot {
+        background-color: #db4444;
+      }
+
+      /* Services Section */
+      .services-section {
+        align-self: center;
+        display: flex;
+        margin-top: 140px;
+        align-items: center;
+        gap: 40px 88px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 991px) {
+        .services-section {
+          max-width: 100%;
+          margin-top: 40px;
+        }
+      }
+
+      .service-item {
+        align-self: stretch;
+        display: flex;
+        min-width: 240px;
+        margin: auto 0;
+        flex-direction: column;
+        align-items: center;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        color: #000;
+        justify-content: start;
+      }
+
+      .service-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 80px;
+      }
+
+      .service-content {
+        display: flex;
+        margin-top: 24px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+      }
+
+      .service-title {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.4;
+      }
+
+      .service-description {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 8px;
+      }
+
+      .service-icon-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+      }
+
+      .service-icon-outer {
+        background-color: rgba(47, 46, 48, 0.3);
+        border-radius: 50%;
+        display: flex;
+        padding: 0 8px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+      }
+
+      .service-icon-inner {
+        background-color: #000;
+        border-radius: 50%;
+        display: flex;
+        width: 58px;
+        flex-shrink: 0;
+        height: 58px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="about">
+      <header class="top-header">
+        <div class="promo-container">
+          <p class="promo-text">
+            Summer Sale !!! Free Express Delivery - OFF 50%!
+          </p>
+          <div class="language-selector">
+            <span class="language">English</span>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/8c458026ddcb4daaaca9291897ab1b8ab8e65bd1233e48db8bbc95eb90ee3e16?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="dropdown-icon"
+              alt="Language dropdown"
+            />
+          </div>
+        </div>
+      </header>
+
+      <nav class="main-header">
+        <div class="nav-container">
+          <h1 class="logo">UrbanEcoMove</h1>
+          <ul class="nav-links">
+            <li><a href="C:\Users\LENOVO\Desktop\wt code\category dropdown\dropdownmenu.html" class="nav-link">Home</a></li>
+            <li><a href="C:\Users\LENOVO\Desktop\wt code\404 error\errormerge.html" class="nav-link">Contact</a></li>
+            <li class="active-nav-item">
+              <a href="C:\Users\LENOVO\Desktop\wt code\about\abmerge.html" class="nav-link">About</a>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/7c4a968e61751929cf46491fa57e5fa87f2f3c7c5d51673c41475a8954433106?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="active-indicator"
+                alt=""
+              />
+            </li>
+            <li><a href="C:\Users\LENOVO\Desktop\wt code\sign in\merge.html" class="nav-link">Sign Up</a></li>
+          </ul>
+        </div>
+
+        <div class="header-actions">
+          <div class="search-component">
+            <div class="search-input">
+              <span class="search-placeholder">What are you looking for?</span>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/7a36546edd30f9649053810fdbf6c98d92541e863e7b8b10ab13af855343b34e?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="search-icon"
+                alt="Search"
+              />
+            </div>
+          </div>
+          <div class="action-icons">
+            <a href="#"
+              ><img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/850597cc14d3bfef027aa097fc5bca3ac1b650d683dc1d3c8c0134d5cd9a061d?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="action-icon"
+                alt="Wishlist"
+            /></a>
+            <a href="C:\Users\LENOVO\Desktop\wt code\check out\checkoutmerge.html"
+              ><img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/b8271502a2876bb3b6063268c10c6816f284c0b61e357253322dae4e6eac2662?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="action-icon"
+                alt="Cart"
+            /></a>
+            <a href="C:\Users\LENOVO\Desktop\wt code\account\accmerge.html"
+              ><img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/505a01368e57ac667ecd551fd161eb3fa8202cee72841e5b11d9f712055e4607?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="action-icon"
+                alt="Profile"
+            /></a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="divider"></div>
+
+      <section class="content-container">
+        <nav class="breadcrumb">
+          <a href="#" class="breadcrumb-item">Home</a>
+          <span class="breadcrumb-item current">About</span>
+        </nav>
+
+        <section class="story-section">
+          <h2 class="story-title">Our Story</h2>
+          <p class="story-text">
+            Launced in 2015, UrbanEcoMove is South Asia's premier Sustainable
+            Transportation Hub with an active presense in India. Supported by
+            wide range of tailored marketing, data and service solutions,
+            Exclusive has 10,500 sellers and 300 brands and serves 3 millions
+            customers across the region.
+          </p>
+        </section>
+
+        <section class="stats-section">
+          <article class="stat-card">
+            <div class="stat-icon-container">
+              <div class="stat-icon-outer">
+                <div class="stat-icon-inner"></div>
+              </div>
+            </div>
+            <div class="stat-content">
+              <h3 class="stat-number">10.5k</h3>
+              <p class="stat-description">Sallers active our site</p>
+            </div>
+          </article>
+
+          <article class="stat-card highlight-card">
+            <div class="stat-icon-wrapper">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/72344b5822cd70adfb9a5f8598439fcef1bb905529ac59a3d4ffd5f0ce29cd1c?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="stat-icon"
+                alt="Statistics icon"
+              />
+              <h3 class="stat-number">33k</h3>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-content-wrapper">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/c84b70f9042535c0360ee3ff0887893a1ed75c7c276c6823e47f068aaf3be044?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="stat-icon"
+                alt="Statistics icon"
+              />
+              <div class="stat-text">
+                <h3 class="stat-number">45.5k</h3>
+                <p class="stat-description">Customer active in our site</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon-container">
+              <div class="stat-icon-outer">
+                <div class="stat-icon-inner"></div>
+              </div>
+            </div>
+            <div class="stat-content">
+              <h3 class="stat-number">25k</h3>
+              <p class="stat-description">Anual gross sale in our site</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="team-section">
+          <article class="team-member">
+            <div class="member-image-container">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/eb1c2581c3f449bb61077d555f71b6e7dc3282deba44706a0ea087c6585879ae?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="member-image"
+                alt="Tom Cruise"
+              />
+            </div>
+            <div class="member-details">
+              <div class="member-info">
+                <h3 class="member-name">Tom Cruise</h3>
+                <p class="member-position">Founder & Chairman</p>
+              </div>
+              <div class="social-links">
+                <a
+                  href="#"
+                  class="social-link twitter-icon"
+                  aria-label="Twitter"
+                ></a>
+                <a
+                  href="#"
+                  class="social-link instagram-icon"
+                  aria-label="Instagram"
+                ></a>
+                <a href="#" class="social-link">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/fa88e0ec4d85b90779c166de611103f06f0c7744640ae7496df24ef1ff5c4d83?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                    class="social-icon"
+                    alt="LinkedIn"
+                  />
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="team-member">
+            <div class="member-image-container">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/0b8857412b43ee5b030a6b8f3bef2b6c1563b7b65906986470fc38837f9e0b89?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="member-image"
+                alt="Emma Watson"
+              />
+            </div>
+            <div class="member-details">
+              <div class="member-info">
+                <h3 class="member-name">Emma Watson</h3>
+                <p class="member-position">Managing Director</p>
+              </div>
+              <div class="social-links">
+                <a
+                  href="#"
+                  class="social-link twitter-icon"
+                  aria-label="Twitter"
+                ></a>
+                <a
+                  href="#"
+                  class="social-link instagram-icon"
+                  aria-label="Instagram"
+                ></a>
+                <a href="#" class="social-link">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/fa88e0ec4d85b90779c166de611103f06f0c7744640ae7496df24ef1ff5c4d83?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                    class="social-icon"
+                    alt="LinkedIn"
+                  />
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="team-member">
+            <div class="member-image-container">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/c431045861034878ee2dab9b00cd043db6c3d2110da911a3ef68c4c6fc4eda8b?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="member-image"
+                alt="Will Smith"
+              />
+            </div>
+            <div class="member-details">
+              <div class="member-info">
+                <h3 class="member-name">Will Smith</h3>
+                <p class="member-position">Product Designer</p>
+              </div>
+              <div class="social-links">
+                <a
+                  href="#"
+                  class="social-link twitter-icon"
+                  aria-label="Twitter"
+                ></a>
+                <a
+                  href="#"
+                  class="social-link instagram-icon"
+                  aria-label="Instagram"
+                ></a>
+                <a href="#" class="social-link">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/fa88e0ec4d85b90779c166de611103f06f0c7744640ae7496df24ef1ff5c4d83?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                    class="social-icon"
+                    alt="LinkedIn"
+                  />
+                </a>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <div class="pagination">
+          <span class="page-dot"></span>
+          <span class="page-dot"></span>
+          <span class="page-dot"></span>
+          <span class="page-dot"></span>
+        </div>
+
+        <section class="services-section">
+          <article class="service-item">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/1536cc6a6c3a892db4da26e282c2ca1162867af2b2da44fa124609a3cf87edb8?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="service-icon"
+              alt="Delivery"
+            />
+            <div class="service-content">
+              <h3 class="service-title">FREE AND FAST DELIVERY</h3>
+              <p class="service-description">
+                Free delivery for all orders over $140
+              </p>
+            </div>
+          </article>
+
+          <article class="service-item">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/c51da049e03379e32faa0c0520ab08e868c9704f3e36e9c81b5c0a054622828a?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="service-icon"
+              alt="Customer Service"
+            />
+            <div class="service-content">
+              <h3 class="service-title">24/7 CUSTOMER SERVICE</h3>
+              <p class="service-description">Friendly 24/7 customer support</p>
+            </div>
+          </article>
+
+          <article class="service-item">
+            <div class="service-icon-container">
+              <div class="service-icon-outer">
+                <div class="service-icon-inner"></div>
+              </div>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">MONEY BACK GUARANTEE</h3>
+              <p class="service-description">We reurn money within 30 days</p>
+            </div>
+          </article>
+        </section>
+      </section>
+    </main>
+    <script>
+      /**
+       * JavaScript for About page interactivity
+       */
+
+      // Wait for DOM to be fully loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize search functionality
+        initSearch();
+
+        // Initialize pagination dots
+        initPagination();
+      });
+
+      /**
+       * Initialize search functionality
+       */
+      function initSearch() {
+        var searchInput = document.querySelector(".search-input");
+        var searchPlaceholder = document.querySelector(".search-placeholder");
+
+        if (searchInput && searchPlaceholder) {
+          // Clear placeholder on click
+          searchInput.addEventListener("click", function () {
+            // Create an actual input element if it doesn't exist
+            if (!document.querySelector(".search-field")) {
+              searchPlaceholder.style.display = "none";
+
+              var input = document.createElement("input");
+              input.type = "text";
+              input.className = "search-field";
+              input.style.border = "none";
+              input.style.background = "transparent";
+              input.style.outline = "none";
+              input.style.width = "100%";
+              input.style.fontFamily =
+                "Poppins, -apple-system, Roboto, Helvetica, sans-serif";
+              input.style.fontSize = "12px";
+
+              searchInput.insertBefore(input, searchPlaceholder);
+              input.focus();
+
+              // Show placeholder again if input is empty and loses focus
+              input.addEventListener("blur", function () {
+                if (input.value === "") {
+                  searchPlaceholder.style.display = "block";
+                  input.remove();
+                }
+              });
+            }
+          });
+        }
+      }
+
+      /**
+       * Initialize pagination dots
+       */
+      function initPagination() {
+        var paginationDots = document.querySelectorAll(".page-dot");
+
+        if (paginationDots.length) {
+          // Set the first dot as active
+          paginationDots[0].classList.add("active-dot");
+
+          // Add click event to each dot
+          paginationDots.forEach(function (dot, index) {
+            dot.addEventListener("click", function () {
+              // Remove active class from all dots
+              paginationDots.forEach(function (d) {
+                return d.classList.remove("active-dot");
+              });
+
+              // Add active class to clicked dot
+              dot.classList.add("active-dot");
+
+              // Here you would typically implement pagination logic
+              console.log("Page ".concat(index + 1, " selected"));
+            });
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

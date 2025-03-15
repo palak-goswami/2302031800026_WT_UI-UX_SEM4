@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Charging & Cost</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      }
+
+      .charging-cost {
+        max-width: auto; 
+        height: auto; 
+        background-color: rgba(242, 241, 223, 1);
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 480px;
+        width: 100%;
+        padding-bottom: 23px;
+        overflow: hidden;
+      }
+
+      .overview {
+        background-color: rgba(64, 123, 255, 0.97);
+        display: flex;
+        width: 100%;
+        padding-bottom: 13px;
+        flex-direction: column;
+        overflow: hidden;
+        align-items: stretch;
+      }
+
+      .header-bg {
+        background-color: rgba(39, 40, 42, 1);
+        display: flex;
+        width: 100%;
+        padding: 13px 16px 21px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .status-time {
+        color: #fff;
+        text-align: center;
+        font-family:
+          SF Pro Text,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 1;
+        letter-spacing: -0.41px;
+        align-self: start;
+        margin-left: 21px;
+      }
+
+      .header-icons {
+        display: flex;
+        margin-top: 27px;
+        align-items: stretch;
+        gap: 20px;
+        justify-content: space-between;
+      }
+
+      .back-icon {
+        aspect-ratio: 0.95;
+        object-fit: contain;
+        object-position: center;
+        width: 21px;
+        margin-top: auto;
+        margin-bottom: auto;
+        flex-shrink: 0;
+      }
+
+      .settings-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 30px;
+        flex-shrink: 0;
+      }
+
+      .section-title {
+        color: #fff;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1;
+        align-self: start;
+        margin-top: 33px;
+      }
+
+      .charging-graph {
+        aspect-ratio: 2.12;
+        object-fit: contain;
+        object-position: center;
+        width: 100%;
+        margin-top: 32px;
+      }
+
+      .charging-stats {
+        display: flex;
+        margin-top: 16px;
+        align-items: start;
+        gap: 20px;
+        justify-content: space-between;
+      }
+
+      .stat-column {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .stat-label {
+        color: #ffffff;
+        font-size: 15px;
+        font-family:
+          Gotham Pro,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-weight: 400;
+        line-height: 1;
+      }
+
+      .stat-value {
+        color: #fff;
+        font-feature-settings:
+          "liga" off,
+          "clig" off;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 1;
+        margin-top: 7px;
+      }
+
+      .stat-unit {
+        font-size: 20px;
+      }
+
+      .savings-info {
+        align-self: center;
+        display: flex;
+        margin-top: 21px;
+        width: 100%;
+        max-width: 322px;
+        align-items: stretch;
+        gap: 6px;
+      }
+
+      .savings-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 19px;
+        align-self: start;
+        flex-shrink: 0;
+      }
+
+      .savings-text {
+        flex-grow: 1;
+        flex-shrink: 1;
+        width: 293px;
+        flex-basis: auto;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 15px;
+        color: rgba(94, 204, 121, 1);
+        font-weight: 500;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .location-info {
+        align-self: start;
+        margin-top: 10px;
+        margin-left: 36px;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+      }
+
+      .location-city {
+        color: rgba(255, 255, 255, 1);
+        font-size: 21px;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -0.41px;
+      }
+
+      .location-detail {
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 2;
+        margin-top: 5px;
+      }
+
+      .cost-breakdown {
+        display: flex;
+        flex-direction: column;
+        border-radius: 0;
+        position: relative;
+        aspect-ratio: 1.408;
+        width: 100%;
+        padding-top: 15px;
+        align-items: center;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+      }
+
+      .cost-bg-image {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .cost-details {
+        position: relative;
+        display: flex;
+        width: 100%;
+        max-width: 340px;
+        align-items: stretch;
+        gap: 40px 100px;
+        color: rgba(0, 0, 0, 1);
+      }
+
+      .cost-labels {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.42px;
+        flex: 1;
+      }
+
+      .cost-label {
+        margin-bottom: 21px;
+      }
+
+      .vat {
+        align-self: start;
+      }
+
+      .surcharge {
+        margin-top: 20px;
+      }
+
+      .total-label {
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 0.6px;
+        align-self: start;
+        margin-top: 22px;
+      }
+
+      .cost-values {
+        align-self: start;
+        font-weight: 500;
+        text-align: right;
+        flex: 1;
+      }
+
+      .cost-items-container {
+        display: flex;
+        padding-left: 20px;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      .cost-item {
+        margin-bottom: 25px;
+      }
+
+      .cost-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .cost-amount {
+        font-size: 14px;
+        letter-spacing: 0.42px;
+      }
+
+      .total-container {
+        display: flex;
+        margin-top: 26px;
+        align-items: start;
+        gap: 8px;
+      }
+
+      .currency-icon {
+        aspect-ratio: 0.67;
+        object-fit: contain;
+        object-position: center;
+        width: 12px;
+        margin-top: 6px;
+        flex-shrink: 0;
+      }
+
+      .total-amount {
+        font-size: 18px;
+        letter-spacing: 0.54px;
+      }
+
+      .total-amount-bold {
+        font-weight: 700;
+      }
+
+      .pay-button {
+        position: relative;
+        border-radius: 15px;
+        background-color: rgba(9, 31, 91, 1);
+        box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.1);
+        margin-top: 12px;
+        width: 218px;
+        max-width: 100%;
+        padding: 14px 55px;
+        font-size: 14px;
+        color: #fff;
+        font-weight: 800;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .pay-button:hover {
+        background-color: rgba(15, 45, 120, 1);
+      }
+
+      .bottom-image {
+        aspect-ratio: 4.57;
+        object-fit: contain;
+        object-position: center;
+        width: 100%;
+        align-self: stretch;
+        z-index: 10;
+        margin-top: 8px;
+        margin-bottom: -23px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="charging-cost">
+      <div class="overview">
+        <div class="header-bg">
+          <div class="status-time">9:41</div>
+          <div class="header-icons">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/10ab30349ea13ab4217e235dc3937a5c2ec4d7c5bed1f23beb39bb91035dc9d3?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="back-icon"
+              alt="Back"
+            />
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/f77ea85a4b9486807f6c73ae77f7e5adf0f1241e5438b8181fe5dbe55ab73a45?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="settings-icon"
+              alt="Settings"
+            />
+          </div>
+          <div class="section-title">Cost of Charge</div>
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/16b1b4b22c180af25055a22a40fe658f5603798c5f206a87522aa4495f6988f7?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+            class="charging-graph"
+            alt="Charging Graph"
+          />
+          <div class="charging-stats">
+            <div class="stat-column">
+              <div class="stat-label">To full charge</div>
+              <div class="stat-value">35<span class="stat-unit">min</span></div>
+            </div>
+            <div class="stat-column">
+              <div class="stat-label">Range</div>
+              <div class="stat-value">215<span class="stat-unit">kW</span></div>
+            </div>
+            <div class="stat-column">
+              <div class="stat-label">Cost per kW</div>
+              <div class="stat-value">10.42</div>
+            </div>
+          </div>
+          <div class="savings-info">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/349fb58ad848173a5c4bc82b8a5021bf5f943275a03e4b1fe1816d8c0950b530?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              class="savings-icon"
+              alt="Savings"
+            />
+            <div class="savings-text" id="savings-link">
+              See how much you saved using a Tesla
+            </div>
+          </div>
+        </div>
+        <div class="location-info">
+          <div class="location-city">Ahmedabad</div>
+          <div class="location-detail">Silver Oak University</div>
+        </div>
+      </div>
+      <div class="cost-breakdown">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/d8f0b5ea8ab733ee5190d172c0586636530ac8e237287103751ddcfa57eea84e?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+          class="cost-bg-image"
+          alt="Background"
+        />
+        <div class="cost-details">
+          <div class="cost-labels">
+            <div class="cost-label">Charge Fee</div>
+            <div class="cost-label vat">VAT</div>
+            <div class="cost-label surcharge">Surcharge</div>
+            <div class="total-label">Total</div>
+          </div>
+          <div class="cost-values">
+            <div class="cost-items-container">
+              <div class="cost-item">
+                <span class="cost-amount" id="charge-fee">7500.00</span>
+              </div>
+              <div class="cost-item">
+                <span class="cost-amount" id="vat-amount">1000.00</span>
+              </div>
+              <div class="cost-item">
+                <span class="cost-amount" id="surcharge-amount">500.00</span>
+              </div>
+            </div>
+            <div class="total-container">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/bde746b0a462814b963491d3a9042cd2372a9f236f22a3b3e2561f8b76e50e4a?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                class="currency-icon"
+                alt="Currency"
+              />
+              <div class="total-amount">
+                <span class="total-amount-bold" id="total-amount">8000.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="pay-button" id="pay-button">Proceed to Pay</button>
+        <a href="C:\Users\LENOVO\Desktop\wt code\charging station\chargingstation merge.html">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/b0779445126702f1aebb013329f07c25026fe8ef8d094491bb08e79336e3cd34?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+          class="bottom-image"
+          alt="Bottom decoration"
+        />
+        </a>
+      </div>
+    </div>
+
+    <script>
+      // Get DOM elements
+      const payButton = document.getElementById("pay-button");
+      const savingsLink = document.getElementById("savings-link");
+      const chargeFee = document.getElementById("charge-fee");
+      const vatAmount = document.getElementById("vat-amount");
+      const surchargeAmount = document.getElementById("surcharge-amount");
+      const totalAmount = document.getElementById("total-amount");
+
+      // Add event listeners
+      payButton.addEventListener("click", handlePayment);
+      savingsLink.addEventListener("click", showSavings);
+
+      // Function to handle payment
+      function handlePayment() {
+        alert("Processing payment of ₹8000.00");
+        // Here you would typically redirect to a payment gateway or process the payment
+      }
+
+      // Function to show savings information
+      function showSavings() {
+        alert(
+          "You saved approximately ₹1200 by using a Tesla charger compared to conventional fuel costs.",
+        );
+        // Here you could show a modal with detailed savings information
+      }
+
+      // Function to calculate total (for demonstration purposes)
+      function calculateTotal() {
+        const fee = parseFloat(chargeFee.textContent);
+        const vat = parseFloat(vatAmount.textContent);
+        const surcharge = parseFloat(surchargeAmount.textContent);
+
+        const total = fee + vat + surcharge;
+        totalAmount.textContent = total.toFixed(2);
+      }
+
+      // You could add more functionality here, such as:
+      // - Real-time charging updates
+      // - Location services
+      // - Payment processing
+      // - User authentication
+    </script>
+  </body>
+</html>

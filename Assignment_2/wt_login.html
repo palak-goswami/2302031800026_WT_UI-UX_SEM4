@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Global styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        background-color: #000;
+        color: #fff;
+      }
+
+      /* Login page container */
+      .login-page {
+        max-width: auto; 
+        height: auto;
+        background-color: #000;
+        padding-right: 80px;
+        overflow: hidden;
+      }
+
+      /* Main container for columns */
+      .login-container {
+        display: flex;
+        gap: 20px;
+      }
+
+      /* Left column with image */
+      .image-column {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        line-height: normal;
+        width: 65%;
+      }
+
+      .login-image {
+        aspect-ratio: 0.8;
+        object-fit: contain;
+        object-position: center;
+        width: 100%;
+        flex-grow: 1;
+      }
+
+      /* Right column with form */
+      .form-column {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        line-height: normal;
+        width: 35%;
+        margin-left: 20px;
+      }
+
+      .form-wrapper {
+        margin-top: 198px;
+        width: 100%;
+        color: #fff;
+      }
+
+      /* Login form container with glass effect */
+      .login-form-container {
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.33);
+        box-shadow: 0px 4px 12px 11px rgba(0, 0, 0, 0.1);
+        border-color: rgba(255, 255, 255, 0.53);
+        display: flex;
+        padding: 36px 39px;
+        flex-direction: column;
+        align-items: stretch;
+        font-size: 10px;
+        font-weight: 400;
+      }
+
+      .login-heading {
+        font-size: 15px;
+        font-weight: 600;
+        align-self: start;
+      }
+
+      .login-description {
+        margin-top: 10px;
+      }
+
+      /* Form elements */
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-top: 22px;
+      }
+
+      .form-group:first-of-type {
+        margin-top: 36px;
+      }
+
+      .form-label {
+        font-weight: 600;
+        align-self: start;
+        font-size: 10px;
+      }
+
+      .form-input {
+        border-radius: 8.229px;
+        border: 0.411px solid rgba(255, 255, 255, 0.41);
+        backdrop-filter: blur(35px);
+        background-color: #fffffb;
+        margin-top: 9px;
+        margin-bottom: 20px;
+        width: 310px;
+        max-width: 100%;
+        padding: 14px 19px;
+        font-size: 12px;
+        color: #1a1a1a;
+        font-family: Poppins, sans-serif;
+      }
+
+      .forgot-password-link {
+        font-size: 12px;
+        text-align: right;
+        align-self: flex-end;
+        margin-top: 11px;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .login-button {
+        border-radius: 8.229px;
+        border: 0.411px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(5.924908638000488px);
+        background-color: #fffffb;
+        align-self: center;
+        margin-top: 40px;
+        width: 141px;
+        max-width: 100%;
+        padding: 10px 47px;
+        font-size: 15px;
+        color: #1a1a1a;
+        text-align: center;
+        cursor: pointer;
+        font-family: Poppins, sans-serif;
+        font-weight: 600;
+      }
+
+      /* Sign up section */
+      .signup-section {
+        display: flex;
+        margin-top: 162px;
+        margin-left: 28px;
+        margin-right: 27px;
+        align-items: stretch;
+        gap: 14px;
+        font-size: 16px;
+      }
+
+      .signup-text {
+        font-weight: 400;
+        flex-grow: 1;
+      }
+
+      .create-account-link {
+        font-weight: 600;
+        flex-grow: 1;
+        flex-shrink: 1;
+        width: 102px;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 991px) {
+        .login-page {
+          padding-right: 20px;
+        }
+
+        .login-container {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0;
+        }
+
+        .image-column {
+          width: 100%;
+        }
+
+        .login-image {
+          max-width: 100%;
+          margin-top: 40px;
+        }
+
+        .form-column {
+          width: 100%;
+          margin-left: 0;
+        }
+
+        .form-wrapper {
+          margin-top: 40px;
+        }
+
+        .login-form-container {
+          padding: 36px 20px;
+        }
+
+        .form-input {
+          padding-right: 20px;
+          white-space: initial;
+        }
+
+        .login-button {
+          padding: 10px 20px;
+        }
+
+        .signup-section {
+          margin-right: 10px;
+          margin-left: 10px;
+          margin-top: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="login-page">
+      <div class="login-container">
+        <section class="image-column">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/282bef81fee9781e2874e82f465680a31db48cd9da5075ce58b9c7ae55142eb4?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+            alt="Login illustration"
+            class="login-image"
+          />
+        </section>
+        <section class="form-column">
+          <div class="form-wrapper">
+            <article class="login-form-container">
+              <h1 class="login-heading">Log In</h1>
+              <p class="login-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna.
+              </p>
+              <form id="loginForm">
+                <div class="form-group">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    class="form-input"
+                    value="palak@gmail.com"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="password" class="form-label">Password</label>
+                  <input
+                    type="password"
+                    id="password"
+                    class="form-input"
+                    value="*********"
+                  />
+                </div>
+                <div>             
+                  <a href="C:\Users\LENOVO\Desktop\wt code\category dropdown\dropdownmenu.html" class="login-button">LOG IN</a>
+                </div>
+              </form>
+            </article>
+            <div class="signup-section">
+              <p class="signup-text">Don't have an account?</p>
+              <a href="C:\Users\LENOVO\Desktop\wt code\sign in\merge.html">Create Account</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script>
+      // Function to validate email format
+      function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      // Function to validate password (minimum 8 characters)
+      function isValidPassword(password) {
+        return password.length >= 8;
+      }
+
+      // Function to handle form submission
+      function handleFormSubmit(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        const emailInput = form.elements.email;
+        const passwordInput = form.elements.password;
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
+
+        // Validate email
+        if (!isValidEmail(email)) {
+          alert("Please enter a valid email address");
+          emailInput.focus();
+          return;
+        }
+
+        // Validate password
+        if (!isValidPassword(password)) {
+          alert("Password must be at least 8 characters long");
+          passwordInput.focus();
+          return;
+        }
+
+        // If validation passes, you would typically send the data to a server
+        console.log("Login form submitted with:", { email, password });
+
+        // For demo purposes, show success message
+        alert("Login successful!");
+      }
+
+      // Function to handle forgot password link
+      function handleForgotPassword(event) {
+        event.preventDefault();
+
+        const emailInput = document.getElementById("email");
+        const email = emailInput.value.trim();
+
+        if (!isValidEmail(email)) {
+          alert("Please enter your email address first");
+          emailInput.focus();
+          return;
+        }
+
+        // In a real application, you would send a password reset email
+        alert(`Password reset instructions sent to ${email}`);
+      }
+
+      // Initialize event listeners when DOM is loaded
+      document.addEventListener("DOMContentLoaded", () => {
+        // Get form and attach submit event listener
+        const loginForm = document.getElementById("loginForm");
+        if (loginForm) {
+          loginForm.addEventListener("submit", handleFormSubmit);
+        }
+
+        // Get forgot password link and attach click event listener
+        const forgotPasswordLink = document.querySelector(
+          ".forgot-password-link",
+        );
+        if (forgotPasswordLink) {
+          forgotPasswordLink.addEventListener("click", handleForgotPassword);
+        }
+
+        // Get create account link
+        const createAccountLink = document.querySelector(
+          ".create-account-link",
+        );
+        if (createAccountLink) {
+          createAccountLink.addEventListener("click", (event) => {
+            event.preventDefault();
+            alert("Create account functionality would be implemented here");
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - UrbanEcoMove</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          "Poppins",
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        background-color: #fff;
+      }
+
+      /* Checkout Page Container */
+      .checkout-page {
+        max-width: auto; 
+        height: auto;
+        display: flex;
+        padding-top: 88px;
+        padding-bottom: 88px;
+        flex-direction: column;
+        align-items: center;
+        background-color: #fff;
+      }
+
+      /* Header Styles */
+      .site-header {
+        display: flex;
+        align-items: center;
+        gap: 40px 130px;
+        justify-content: start;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+
+      @media (max-width: 991px) {
+        .site-header {
+          max-width: 100%;
+        }
+      }
+
+      .header-left {
+        align-self: stretch;
+        display: flex;
+        min-width: 240px;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-items: start;
+        gap: 40px 160px;
+        color: #000;
+        white-space: nowrap;
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 991px) {
+        .header-left {
+          max-width: 100%;
+          white-space: initial;
+        }
+      }
+
+      .logo {
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 0.72px;
+        line-height: 1;
+        width: 118px;
+        padding-right: -70px;
+      }
+
+      @media (max-width: 991px) {
+        .logo {
+          white-space: initial;
+        }
+      }
+
+      .main-nav {
+        display: flex;
+        min-width: 240px;
+        align-items: start;
+        gap: 40px 48px;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        text-align: center;
+        justify-content: start;
+      }
+
+      @media (max-width: 991px) {
+        .main-nav {
+          white-space: initial;
+        }
+      }
+
+      .nav-link {
+        color: #000;
+        text-decoration: none;
+        width: 48px;
+      }
+
+      .nav-link:nth-child(2) {
+        width: 66px;
+      }
+
+      .nav-link:nth-child(4) {
+        width: 61px;
+      }
+
+      @media (max-width: 991px) {
+        .nav-link {
+          white-space: initial;
+        }
+
+        .nav-link:nth-child(4) {
+          padding-right: -3px;
+        }
+      }
+
+      .header-right {
+        align-self: stretch;
+        display: flex;
+        min-width: 240px;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-items: center;
+        gap: 24px;
+        justify-content: start;
+      }
+
+      .search-bar {
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        background-color: #f5f5f5;
+        align-self: stretch;
+        display: flex;
+        min-width: 240px;
+        margin-top: auto;
+        margin-bottom: auto;
+        padding-left: 20px;
+        padding-right: 12px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        flex-direction: column;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 12px;
+        color: #000;
+        font-weight: 400;
+      }
+
+      .search-bar > div {
+        display: flex;
+        align-items: center;
+        gap: 34px;
+        justify-content: center;
+      }
+
+      .search-placeholder {
+        opacity: 0.5;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      .search-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 24px;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+        flex-shrink: 0;
+      }
+
+      .user-actions {
+        align-self: stretch;
+        display: flex;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-items: center;
+        gap: 16px;
+        justify-content: center;
+      }
+
+      .user-icon,
+      .wishlist-icon,
+      .cart-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 32px;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+        flex-shrink: 0;
+      }
+
+      .divider {
+        opacity: 0.3;
+        border-color: rgba(0, 0, 0, 1);
+        border-style: solid;
+        border-width: 1px;
+        background-color: #000;
+        align-self: stretch;
+        min-height: 1px;
+        margin-top: 16px;
+        width: 100%;
+      }
+
+      @media (max-width: 991px) {
+        .divider {
+          max-width: 100%;
+        }
+      }
+
+      /* Checkout Content */
+      .checkout-content {
+        display: flex;
+        margin-top: 79px;
+        width: 100%;
+        max-width: 1170px;
+        flex-direction: column;
+        align-items: start;
+      }
+
+      @media (max-width: 991px) {
+        .checkout-content {
+          max-width: 100%;
+          margin-top: 40px;
+        }
+      }
+
+      /* Breadcrumb */
+      .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 14px;
+        color: #000;
+        font-weight: 400;
+        justify-content: start;
+      }
+
+      .breadcrumb-item {
+        opacity: 0.5;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      .breadcrumb-item.active {
+        opacity: 1;
+      }
+
+      /* Page Title */
+      .page-title {
+        margin-top: 80px;
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 36px;
+        color: #000;
+        font-weight: 500;
+        letter-spacing: 1.44px;
+        line-height: 1;
+      }
+
+      @media (max-width: 991px) {
+        .page-title {
+          margin-top: 40px;
+        }
+      }
+
+      /* Checkout Container */
+      .checkout-container {
+        align-self: stretch;
+        margin-top: 48px;
+        width: 100%;
+      }
+
+      @media (max-width: 991px) {
+        .checkout-container {
+          max-width: 100%;
+          margin-top: 40px;
+        }
+      }
+
+      .checkout-columns {
+        gap: 20px;
+        display: flex;
+        width: 100%;
+      }
+
+      @media (max-width: 991px) {
+        .checkout-columns {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0px;
+        }
+      }
+
+      /* Billing Form Column */
+      .billing-form-column {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        line-height: normal;
+        width: 50%;
+        margin-left: 0px;
+      }
+
+      @media (max-width: 991px) {
+        .billing-form-column {
+          width: 100%;
+        }
+      }
+
+      .billing-form {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        justify-content: start;
+      }
+
+      @media (max-width: 991px) {
+        .billing-form {
+          max-width: 100%;
+          margin-top: 40px;
+        }
+      }
+
+      .form-group {
+        max-width: 100%;
+        width: 470px;
+        color: #000000;
+        margin-bottom: 32px;
+      }
+
+      .form-group:first-child {
+        margin-top: 0;
+      }
+
+      .form-label {
+        opacity: 0.4;
+        display: block;
+        line-height: 24px;
+      }
+
+      .required {
+        color: rgba(219, 68, 68, 1);
+      }
+
+      .form-input {
+        border: none;
+        border-radius: 4px;
+        background-color: #f5f5f5;
+        display: flex;
+        min-height: 50px;
+        margin-top: 8px;
+        width: 100%;
+      }
+
+      .save-info {
+        align-self: start;
+        display: flex;
+        margin-top: 24px;
+        align-items: start;
+        gap: 16px;
+        color: #000;
+        justify-content: start;
+      }
+
+      @media (max-width: 991px) {
+        .save-info {
+          max-width: 100%;
+        }
+      }
+
+      .checkbox-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 24px;
+        fill: #db4444;
+        flex-shrink: 0;
+      }
+
+      /* Order Summary Column */
+      .order-summary-column {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        line-height: normal;
+        width: 50%;
+        margin-left: 20px;
+      }
+
+      @media (max-width: 991px) {
+        .order-summary-column {
+          width: 100%;
+        }
+      }
+
+      .order-summary {
+        display: flex;
+        margin-top: 32px;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+      }
+
+      @media (max-width: 991px) {
+        .order-summary {
+          max-width: 100%;
+          margin-top: 40px;
+        }
+      }
+
+      .cart-items {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        justify-content: start;
+      }
+
+      .cart-item {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        justify-content: start;
+        margin-bottom: 32px;
+      }
+
+      .cart-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .item-image {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 54px;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+        flex-shrink: 0;
+      }
+
+      .item-details {
+        align-self: stretch;
+        display: flex;
+        min-width: 240px;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-items: center;
+        justify-content: start;
+      }
+
+      .item-name {
+        color: #000;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+        font-size: 16px;
+        font-weight: 400;
+      }
+
+      .item-price {
+        color: #000;
+        align-self: stretch;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: auto;
+      }
+
+      .order-totals {
+        margin-top: 32px;
+        width: 422px;
+        max-width: 100%;
+      }
+
+      .totals-section {
+        width: 100%;
+      }
+
+      .subtotal-row,
+      .shipping-row,
+      .total-row {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        color: #000;
+        font-weight: 400;
+        white-space: nowrap;
+      }
+
+      .shipping-row {
+        margin-top: 16px;
+      }
+
+      .total-row {
+        margin-top: 16px;
+      }
+
+      @media (max-width: 991px) {
+        .subtotal-row,
+        .shipping-row,
+        .total-row {
+          max-width: 100%;
+          white-space: initial;
+        }
+      }
+
+      .underline {
+        transform: rotate(8.742277657347563e-8rad);
+        margin-top: 16px;
+        width: 100%;
+      }
+
+      .underline div {
+        border-color: rgba(0, 0, 0, 1);
+        border-style: solid;
+        border-width: 1px;
+        background-color: #000;
+        z-index: 10;
+        flex-shrink: 0;
+        height: 1px;
+      }
+
+      @media (max-width: 991px) {
+        .underline div {
+          max-width: 100%;
+        }
+      }
+
+      .payment-methods {
+        display: flex;
+        margin-top: 32px;
+        align-items: center;
+        gap: 40px 155px;
+        justify-content: start;
+      }
+
+      @media (max-width: 991px) {
+        .payment-methods {
+          max-width: 100%;
+        }
+      }
+
+      .payment-method {
+        display: flex;
+        margin-top: 32px;
+        align-items: start;
+        gap: 16px;
+        justify-content: start;
+      }
+
+      .payment-method:first-child {
+        align-self: stretch;
+        display: flex;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-items: start;
+        gap: 16px;
+        justify-content: start;
+      }
+
+      .radio-button {
+        width: 24px;
+      }
+
+      .radio-outer {
+        stroke-width: 1.5px;
+        border-color: rgba(0, 0, 0, 1);
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 50%;
+        display: flex;
+        flex-shrink: 0;
+        height: 24px;
+        width: 24px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .radio-inner {
+        background-color: #000;
+        border-radius: 50%;
+        display: flex;
+        width: 14px;
+        flex-shrink: 0;
+        height: 14px;
+      }
+
+      .payment-label {
+        color: #000;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+      }
+
+      .payment-cards {
+        align-self: stretch;
+        display: flex;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-items: start;
+        gap: 8px;
+        justify-content: start;
+      }
+
+      .card-icon {
+        aspect-ratio: 1.5;
+        object-fit: contain;
+        object-position: center;
+        width: 42px;
+        flex-shrink: 0;
+      }
+
+      .coupon-section {
+        align-self: stretch;
+        display: flex;
+        margin-top: 32px;
+        margin-bottom: 30px;
+        align-items: end;
+        gap: 16px;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 991px) {
+        .coupon-section {
+          max-width: 100%;
+        }
+      }
+
+      .coupon-input {
+        border-radius: 4px;
+        border-color: rgba(0, 0, 0, 1);
+        border-style: solid;
+        border-width: 1px;
+        display: flex;
+        min-width: 240px;
+        padding: 16px 24px;
+        flex-direction: column;
+        overflow: hidden;
+        align-items: start;
+        color: #000;
+        font-weight: 400;
+        justify-content: center;
+        width: 300px;
+      }
+
+      @media (max-width: 991px) {
+        .coupon-input {
+          padding-left: 20px;
+          padding-right: 20px;
+          padding-bottom: 60;
+        }
+      }
+
+      .coupon-placeholder {
+        opacity: 0.5;
+      }
+
+      .apply-coupon-btn {
+        align-self: stretch;
+        border: none;
+        border-radius: 4px;
+        background-color: #db4444;
+        padding: 16px 48px;
+        gap: 10px;
+        color: #fafafa;
+        font-weight: 500;
+        font-family: inherit;
+        font-size: inherit;
+        cursor: pointer;
+      }
+
+      @media (max-width: 991px) {
+        .apply-coupon-btn {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+
+      .place-order-btn {
+        align-self: stretch;
+        border: none;
+        border-radius: 4px;
+        background-color: #db4444;
+        margin-top: 50px;
+        padding: 16px 48px;
+        gap: 50px;
+        font-family:
+          Poppins,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 16px;
+        color: #fafafa;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      @media (max-width: 900px) {
+        .place-order-btn {
+          padding-bottom: 50px;
+          padding-top: 50px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="checkout-page">
+      <header class="site-header">
+        <div class="header-left">
+          <h1 class="logo">UrbanEcoMove</h1>
+          <nav class="main-nav">
+            <a href="C:\Users\LENOVO\Desktop\wt code\category dropdown\dropdownmenu.html" class="nav-link">Home</a>
+            <a href="C:\Users\LENOVO\Desktop\wt code\404 error\errormerge.html" class="nav-link">Contact</a>
+            <a href="C:\Users\LENOVO\Desktop\wt code\about\abmerge.html" class="nav-link">About</a>
+            <a href="C:\Users\LENOVO\Desktop\wt code\splash screen\splashmerge.html" class="nav-link">Services</a>
+          </nav>
+        </div>
+        <div class="header-right">
+          <div class="search-bar">
+            <p class="search-placeholder">What are you looking for?</p>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/7a36546edd30f9649053810fdbf6c98d92541e863e7b8b10ab13af855343b34e?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              alt="Search"
+              class="search-icon"
+            />
+          </div>
+          <div class="user-actions">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/2f46b01d8f56846dabad72a61fd444f3085a8b624cfad99f0b703fb6b78182f5?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              alt="User"
+              class="user-icon"
+            />
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/1d49936bb7e7947951a24074df0be75fc667e72893b1780ac9e82c006a87816b?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              alt="Wishlist"
+              class="wishlist-icon"
+            />
+            <a href="C:\Users\LENOVO\Desktop\wt code\account\accmerge.html">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/505a01368e57ac667ecd551fd161eb3fa8202cee72841e5b11d9f712055e4607?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+              alt="Cart"
+              class="cart-icon"
+            />
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <div class="divider"></div>
+
+      <main class="checkout-content">
+        <nav class="breadcrumb">
+          <span class="breadcrumb-item">Account</span>
+          <span class="breadcrumb-item">My Account</span>
+          <span class="breadcrumb-item">Product</span>
+          <span class="breadcrumb-item">View Cart</span>
+          <span class="breadcrumb-item active">CheckOut</span>
+        </nav>
+
+        <h2 class="page-title">Billing Details</h2>
+
+        <div class="checkout-container">
+          <div class="checkout-columns">
+            <section class="billing-form-column">
+              <form class="billing-form">
+                <div class="form-group">
+                  <label for="firstName" class="form-label"
+                    >First Name<span class="required">*</span></label
+                  >
+                  <input type="text" id="firstName" class="form-input" />
+                </div>
+
+                <div class="form-group">
+                  <label for="billingName" class="form-label"
+                    >Billing Name</label
+                  >
+                  <input type="text" id="billingName" class="form-input" />
+                </div>
+
+                <div class="form-group">
+                  <label for="streetAddress" class="form-label"
+                    >Street Address<span class="required">*</span></label
+                  >
+                  <input type="text" id="streetAddress" class="form-input" />
+                </div>
+
+                <div class="form-group">
+                  <label for="apartment" class="form-label"
+                    >Apartment, floor, etc. (optional)</label
+                  >
+                  <input type="text" id="apartment" class="form-input" />
+                </div>
+
+                <div class="form-group">
+                  <label for="townCity" class="form-label"
+                    >Town/City<span class="required">*</span></label
+                  >
+                  <input type="text" id="townCity" class="form-input" />
+                </div>
+
+                <div class="form-group">
+                  <label for="phoneNumber" class="form-label"
+                    >Phone Number<span class="required">*</span></label
+                  >
+                  <input type="tel" id="phoneNumber" class="form-input" />
+                </div>
+
+                <div class="form-group">
+                  <label for="emailAddress" class="form-label"
+                    >Email Address<span class="required">*</span></label
+                  >
+                  <input type="email" id="emailAddress" class="form-input" />
+                </div>
+
+                <div class="save-info">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/542544d6315c058c254d5fc76bd37f4df58e37428adde25ce0d57083f846df31?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                    alt="Checkbox"
+                    class="checkbox-icon"
+                  />
+                  <label for="saveInfo" class="save-info-label"
+                    >Save this information for faster check-out next time</label
+                  >
+                </div>
+              </form>
+            </section>
+
+            <section class="order-summary-column">
+              <div class="order-summary">
+                <div class="cart-items">
+                  <div class="cart-item">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/4ef510b12c0bdbd71683ed3f0134b4f59ce3d3b124d6b4f0f7a3cdb0e6f2c7cb?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                      alt="EV Trucks"
+                      class="item-image"
+                    />
+                    <div class="item-details">
+                      <h3 class="item-name">EV Trucks</h3>
+                      <p class="item-price">$650</p>
+                    </div>
+                  </div>
+
+                  <div class="cart-item">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/50183c6a595689dc52a6d5657261e924c442ed273a138200ac4bea43a44859b7?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                      alt="Carpooling"
+                      class="item-image"
+                    />
+                    <div class="item-details">
+                      <h3 class="item-name">Carpooling</h3>
+                      <p class="item-price">$1100</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="order-totals">
+                  <div class="totals-section">
+                    <div class="subtotal-row">
+                      <span>Subtotal:</span>
+                      <span>$1750</span>
+                    </div>
+                    <div class="underline">
+                      <div></div>
+                    </div>
+                  </div>
+
+                  <div class="shipping-row">
+                    <span>Shipping:</span>
+                    <span>Free</span>
+                  </div>
+
+                  <div class="underline">
+                    <div></div>
+                  </div>
+
+                  <div class="total-row">
+                    <span>Total:</span>
+                    <span>$1750</span>
+                  </div>
+                </div>
+
+                <div class="payment-methods">
+                  <div class="payment-method">
+                    <div class="radio-button">
+                      <div class="radio-outer"></div>
+                    </div>
+                    <span class="payment-label">Bank</span>
+                  </div>
+
+                  <div class="payment-cards">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/828fef6076a9340ad48fbb61acff47dffc6648662d11b0419a4a7d1948fd9701?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                      alt="Visa"
+                      class="card-icon"
+                    />
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/d6c2a2d48a8ee1ead337f649a6fa1168f136812e492c2af2dcc9d6e7b2aa9864?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                      alt="Mastercard"
+                      class="card-icon"
+                    />
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/ee0b74dc23952cd178a4775b63ac431fbc2ccf6b93cfa5c58a02e4c968ca7fb5?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                      alt="American Express"
+                      class="card-icon"
+                    />
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/9c386a3f151f76ae88b84eacc80c456f75796bb951cfdf9cc43a6664571b078c?placeholderIfAbsent=true&apiKey=a4e6393196c04a838565e5cbd816a69f"
+                      alt="Discover"
+                      class="card-icon"
+                    />
+                  </div>
+                </div>
+
+                <div class="payment-method">
+                  <div class="radio-button selected">
+                    <div class="radio-outer">
+                      <div class="radio-inner"></div>
+                    </div>
+                  </div>
+                  <span class="payment-label">Cash on delivery</span>
+                </div>
+
+                <div class="coupon-section">
+                  <div class="coupon-input">
+                    <span class="coupon-placeholder">Coupon Code</span>
+                  </div>
+                  <button class="apply-coupon-btn">Apply Coupon</button>
+                </div>
+                <div>
+                  <a href="C:\Users\LENOVO\Desktop\wt code\charging and cost\costmerge.html" class="place-order-btn">Place Order</a>
+                <!-- <a href="C:\Users\LENOVO\Desktop\wt code\splash screen\splashmerge.html"> -->
+                <!-- <button class="place-order-btn">Place Order</button> -->
+                <!-- </a> -->
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      /**
+       * @typedef {Object} CheckoutState
+       * @property {boolean} saveInfo - Whether to save billing information for future checkouts
+       * @property {string} paymentMethod - The selected payment method ('bank' or 'cash')
+       * @property {string} couponCode - The entered coupon code
+       */
+
+      /**
+       * Checkout page functionality
+       */
+      (function () {
+        /** @type {CheckoutState} */
+        const state = {
+          saveInfo: false,
+          paymentMethod: "cash",
+          couponCode: "",
+        };
+
+        // DOM Elements
+        const saveInfoCheckbox = document.querySelector(".checkbox-icon");
+        const bankRadio = document.querySelector(
+          ".payment-methods .radio-outer",
+        );
+        const cashRadio = document.querySelector(
+          ".payment-method .radio-outer",
+        );
+        const couponInput = document.querySelector(".coupon-input");
+        const applyCouponBtn = document.querySelector(".apply-coupon-btn");
+        const placeOrderBtn = document.querySelector("place-order-btn");
+
+        /**
+         * Initialize event listeners
+         */
+        function initEventListeners() {
+          if (saveInfoCheckbox) {
+            saveInfoCheckbox.addEventListener("click", toggleSaveInfo);
+          }
+
+          if (bankRadio) {
+            bankRadio.addEventListener("click", () =>
+              selectPaymentMethod("bank"),
+            );
+          }
+
+          if (cashRadio) {
+            cashRadio.addEventListener("click", () =>
+              selectPaymentMethod("cash"),
+            );
+          }
+
+          if (couponInput) {
+            couponInput.addEventListener("click", focusCouponInput);
+          }
+
+          if (applyCouponBtn) {
+            applyCouponBtn.addEventListener("click", applyCoupon);
+          }
+
+          if (placeOrderBtn) {
+            placeOrderBtn.addEventListener("click", placeOrder);
+          }
+        }
+
+        /**
+         * Toggle save info checkbox
+         */
+        function toggleSaveInfo() {
+          state.saveInfo = !state.saveInfo;
+          console.log("Save info:", state.saveInfo);
+        }
+
+        /**
+         * Select payment method
+         * @param {string} method - The payment method to select
+         */
+        function selectPaymentMethod(method) {
+          state.paymentMethod = method;
+
+          // Update UI
+          if (method === "bank") {
+            bankRadio.innerHTML = '<div class="radio-inner"></div>';
+            cashRadio.innerHTML = "";
+          } else {
+            bankRadio.innerHTML = "";
+            cashRadio.innerHTML = '<div class="radio-inner"></div>';
+          }
+
+          console.log("Payment method selected:", method);
+        }
+
+        /**
+         * Focus the coupon input
+         */
+        function focusCouponInput() {
+          // In a real implementation, this would create an actual input field
+          console.log("Coupon input focused");
+        }
+
+        /**
+         * Apply coupon code
+         */
+        function applyCoupon() {
+          // In a real implementation, this would validate and apply the coupon
+          console.log("Applying coupon");
+        }
+
+        /**
+         * Place order
+         * @param {Event} e - The click event
+         */
+        function placeOrder(e) {
+          e.preventDefault();
+          // In a real implementation, this would validate the form and submit the order
+          console.log("Placing order with state:", state);
+          alert("Order placed successfully!");
+        }
+
+        // Initialize the checkout page
+        document.addEventListener("DOMContentLoaded", initEventListeners);
+      })();
+    </script>
+  </body>
+</html>
